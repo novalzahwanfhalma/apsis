@@ -52,4 +52,5 @@ Route::post('form/save', [App\Http\Controllers\FormController::class, 'saveRecor
 Route::get('profile_user', [App\Http\Controllers\UserManagementController::class, 'profile'])->name('profile_user');
 Route::post('profile_user/store', [App\Http\Controllers\UserManagementController::class, 'profileStore'])->name('profile_user/store');
 
-
+// ----------------------------- user userManagement ------------------------------
+Route::get('userManagement', [App\Http\Controllers\UserManagementController::class, 'index'])->name('userManagement');

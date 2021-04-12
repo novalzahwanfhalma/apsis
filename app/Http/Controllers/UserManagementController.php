@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class UserManagementController extends Controller
 {
+    public function index()
+    {
+        return view('usermanagement.user_control');
+    }
     // profile user
     public function profile()
     {

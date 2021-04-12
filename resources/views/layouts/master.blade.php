@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ URL::to('assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/css/app.css') }}">
     <link rel="shortcut icon" href="{{ URL::to('assets/images/favicon.svg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ URL::to('assets/vendors/simple-datatables/style.css') }}">
 </head>
 
 <body>
@@ -45,6 +46,9 @@
                                 <span>Maintenain</span>
                             </a>
                             <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="{{ route('userManagement') }}">User Control</a>
+                                </li>
                                 <li class="submenu-item">
                                     <a href="{{ route('logout') }}">Log Out</a>
                                 </li>
@@ -115,6 +119,19 @@
     <script src="{{ URL::to('assets/vendors/apexcharts/apexcharts.js') }}"></script>
     <script src="{{ URL::to('assets/js/pages/dashboard.js') }}"></script>
     <script src="{{ URL::to('assets/js/main.js') }}"></script>
+
+    <script src="{{ URL::to('assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ URL::to('assets/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script src="{{ URL::to('assets/vendors/simple-datatables/simple-datatables.js') }}"></script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+
+    <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>

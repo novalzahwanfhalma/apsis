@@ -27,254 +27,191 @@
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>City</th>
+                                <th>ID</th>
+                                <th>Full Name</th>
+                                <th>Email Address</th>
+                                <th>Phone Number</th>
                                 <th>Status</th>
-                            </tr>
+                                <th>Role Name</th>
+                                <th class="text-center">Modify</th>
+                            </tr>    
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Graiden</td>
-                                <td>vehicula.aliquet@semconsequat.co.uk</td>
-                                <td>076 4820 8838</td>
-                                <td>Offenburg</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Dale</td>
-                                <td>fringilla.euismod.enim@quam.ca</td>
-                                <td>0500 527693</td>
-                                <td>New Quay</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Nathaniel</td>
-                                <td>mi.Duis@diam.edu</td>
-                                <td>(012165) 76278</td>
-                                <td>Grumo Appula</td>
-                                <td>
-                                    <span class="badge bg-danger">Inactive</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Darius</td>
-                                <td>velit@nec.com</td>
-                                <td>0309 690 7871</td>
-                                <td>Ways</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Oleg</td>
-                                <td>rhoncus.id@Aliquamauctorvelit.net</td>
-                                <td>0500 441046</td>
-                                <td>Rossignol</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kermit</td>
-                                <td>diam.Sed.diam@anteVivamusnon.org</td>
-                                <td>(01653) 27844</td>
-                                <td>Patna</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jermaine</td>
-                                <td>sodales@nuncsit.org</td>
-                                <td>0800 528324</td>
-                                <td>Mold</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ferdinand</td>
-                                <td>gravida.molestie@tinciduntadipiscing.org</td>
-                                <td>(016977) 4107</td>
-                                <td>Marlborough</td>
-                                <td>
-                                    <span class="badge bg-danger">Inactive</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kuame</td>
-                                <td>Quisque.purus@mauris.org</td>
-                                <td>(0151) 561 8896</td>
-                                <td>Tresigallo</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Deacon</td>
-                                <td>Duis.a.mi@sociisnatoquepenatibus.com</td>
-                                <td>07740 599321</td>
-                                <td>Karapınar</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Channing</td>
-                                <td>tempor.bibendum.Donec@ornarelectusante.ca</td>
-                                <td>0845 46 49</td>
-                                <td>Warrnambool</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Aladdin</td>
-                                <td>sem.ut@pellentesqueafacilisis.ca</td>
-                                <td>0800 1111</td>
-                                <td>Bothey</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cruz</td>
-                                <td>non@quisturpisvitae.ca</td>
-                                <td>07624 944915</td>
-                                <td>Shikarpur</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Keegan</td>
-                                <td>molestie.dapibus@condimentumDonecat.edu</td>
-                                <td>0800 200103</td>
-                                <td>Assen</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ray</td>
-                                <td>placerat.eget@sagittislobortis.edu</td>
-                                <td>(0112) 896 6829</td>
-                                <td>Hofors</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Maxwell</td>
-                                <td>diam@dapibus.org</td>
-                                <td>0334 836 4028</td>
-                                <td>Thane</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Carter</td>
-                                <td>urna.justo.faucibus@orci.com</td>
-                                <td>07079 826350</td>
-                                <td>Biez</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stone</td>
-                                <td>velit.Aliquam.nisl@sitametrisus.com</td>
-                                <td>0800 1111</td>
-                                <td>Olivar</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Berk</td>
-                                <td>fringilla.porttitor.vulputate@taciti.edu</td>
-                                <td>(0101) 043 2822</td>
-                                <td>Sanquhar</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Philip</td>
-                                <td>turpis@euenimEtiam.org</td>
-                                <td>0500 571108</td>
-                                <td>Okara</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kibo</td>
-                                <td>feugiat@urnajustofaucibus.co.uk</td>
-                                <td>07624 682306</td>
-                                <td>La Cisterna</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Bruno</td>
-                                <td>elit.Etiam.laoreet@luctuslobortisClass.edu</td>
-                                <td>07624 869434</td>
-                                <td>Rocca d"Arce</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Leonard</td>
-                                <td>blandit.enim.consequat@mollislectuspede.net</td>
-                                <td>0800 1111</td>
-                                <td>Lobbes</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Hamilton</td>
-                                <td>mauris@diam.org</td>
-                                <td>0800 256 8788</td>
-                                <td>Sanzeno</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Harding</td>
-                                <td>Lorem.ipsum.dolor@etnetuset.com</td>
-                                <td>0800 1111</td>
-                                <td>Obaix</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Emmanuel</td>
-                                <td>eget.lacus.Mauris@feugiatSednec.org</td>
-                                <td>(016977) 8208</td>
-                                <td>Saint-Remy-Geest</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                            </tr>
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td class="id">{{ $item->id }}</td>
+                                    <td class="name">{{ $item->name }}</td>
+                                    <td class="email">{{ $item->email }}</td>
+                                    <td class="phone_number">{{ $item->phone_number }}</td>
+                                    @if($item->status =='Active')
+                                    <td class="status"><span class="badge bg-success">{{ $item->status }}</span></td>
+                                    @endif
+                                    @if($item->status =='Disable')
+                                    <td class="status"><span class="badge bg-danger">{{ $item->status }}</span></td>
+                                    @endif
+                                    @if($item->status ==null)
+                                    <td class="status"><a href="javascript:void(0)" class="badge badge-pill badge-danger">{{ $item->status }}</a></td>
+                                    @endif
+                                    @if($item->role_name =='Admin')
+                                    <td class="role_name"><a href="javascript:void(0)" class="badge badge-pill badge-success">{{ $item->role_name }}</a></td>
+                                    @endif
+                                    @if($item->role_name =='Normal User')
+                                    <td class="role_name"><a href="javascript:void(0)" class="badge badge-pill badge-secondary">{{ $item->role_name }}</a></td>
+                                    @endif
+                                    @if($item->role_name =='')
+                                    <td class="role_name"><span class="badge bg-warning">{{'[N/A]'}}</span></td>
+                                    @endif
+                                    <td class="text-center">
+                                        <a href="#" class="m-r-15 text-muted userView" data-toggle="modal" data-id="'.$item->id.'"data-bs-toggle="modal"
+                                            data-bs-target="#animation">
+                                            <span class="badge bg-success">View</span>
+                                        </a>  
+                                        <a href="#" class="m-r-15 text-muted userUpdate" data-bs-toggle="modal" data-id="'.$item->id.'" data-bs-target="#UserUpdate">
+                                            <span class="badge bg-info">Edit</span>
+                                        </a>
+                                        <a href="{{ url('role/delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger">Delete</span></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-
         </section>
     </div>
+
+    <!-- Modal View-->
+    <div class="modal text-left" id="animation" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel6" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+            role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel6">View Detail
+                    </h4>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registration" action="" method = "post"><!-- form add -->
+                        {{ csrf_field() }}
+                        <input type="hidden" class="form-control" id="v_id" name="id" value=""/>
+                        <div class="modal-body">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Full Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="v_name"name="name" class="form-control" value=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Email Address</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="v_email"name="email" class="form-control" value=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Phone Number</label>
+                                <div class="col-sm-8">
+                                    <input type="tel" id="v_phone_number"name="mobile" class="form-control" value=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Status</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="v_status"name="status" class="form-control" value=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Role Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="v_role_name"name="role_name" class="form-control" value=""/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- form add end -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                        data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal View-->
+
+    <!-- Modal Update-->
+<div class="modal fade" id="UserUpdate" tabindex="-1" aria-labelledby="update" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update">Update</h5>
+                <button type="button" class="close" data-bs-dismiss="modal"
+                    aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <form id="registration" action="" method = "post"><!-- form add -->
+                {{ csrf_field() }}
+                <div class="modal-body">
+               
+                    <input type="hidden" class="form-control" id="e_id" name="id" value=""/>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Full Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="e_name" name="name" class="form-control" value="" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Email Address</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="e_email" name="email" class="form-control" value="" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Phone Number</label>
+                            <div class="col-sm-8">
+                                <input type="tel" id="e_phone_number" name="phone_number" class="form-control" value="" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Status</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="v_status" name="status">
+                                    <option value="Active">Active</option>
+                                    <option value="Disable">Disable</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Role Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="e_role_name" name="role_name" class="form-control" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- form add end -->
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary"
+                            data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Close</span>
+                        </button>
+                        <button type="submit" id=""name="" class="btn btn-success  waves-light"><i class="icofont icofont-check-circled"></i>Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal Update-->
 
 @endsection

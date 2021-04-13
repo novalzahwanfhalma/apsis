@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class UserManagementController extends Controller
 {
     public function index()
     {
-        return view('usermanagement.user_control');
+        $data = DB::table('users')->get();
+        return view('usermanagement.user_control',compact('data'));
     }
     // profile user
     public function profile()

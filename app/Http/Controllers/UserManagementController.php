@@ -12,11 +12,41 @@ class UserManagementController extends Controller
         $data = DB::table('users')->get();
         return view('usermanagement.user_control',compact('data'));
     }
+    // view detail 
+    public function viewDetail()
+    {
+        return view('usermanagement.view_users');
+    }
     // profile user
     public function profile()
     {
         return view('usermanagement.profile_user');
     }
+
+    // update 
+    public function update(Request $request)
+    {
+
+        $update = [
+
+            'id'            =>$request->id,
+            'name'          =>$request->name,
+            'email'         =>$request->email,
+            'phone_number'  =>$request->phone_number,
+            'status'        =>$request->status,
+            'role_name'     =>$request->role_name
+        ];
+        User::where('id',$request->id)->update($update);
+        return redirect()->back()->with('update','Users Update Success.');
+    }
+
+    public function delete($id)
+    {
+        $delete = User::find($id);
+        $delete->delete();
+        return redirect()->back()->with('update','Data deleted successfully!');
+    }
+
     // save 
     public function profileStore(Request $request)
     {

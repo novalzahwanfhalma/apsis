@@ -54,3 +54,4 @@ Route::post('profile_user/store', [App\Http\Controllers\UserManagementController
 
 // ----------------------------- user userManagement ------------------------------
 Route::get('userManagement', [App\Http\Controllers\UserManagementController::class, 'index'])->name('userManagement');
+Route::get('view/detail', [App\Http\Controllers\UserManagementController::class, 'viewDetail'])->name('view/detail');

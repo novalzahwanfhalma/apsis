@@ -62,7 +62,7 @@
                                     <td class="role_name"><span class="badge bg-warning">{{'[N/A]'}}</span></td>
                                     @endif
                                     <td class="text-center">
-                                        <a href="{{ route('view/detail') }}">
+                                        <a href="{{ url('view/detail/'.$item->id) }}">
                                             <span class="badge bg-success">Update</span>
                                         </a>  
                                         <a href="{{ url('role/delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger">Delete</span></a>

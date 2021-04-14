@@ -13,10 +13,13 @@ class UserManagementController extends Controller
         return view('usermanagement.user_control',compact('data'));
     }
     // view detail 
-    public function viewDetail()
-    {
-        return view('usermanagement.view_users');
+    public function viewDetail($id)
+    {   
+        $data = DB::table('users')->where('id',$id)->get();
+        return view('usermanagement.view_users',compact('data'));
     }
+
+      
     // profile user
     public function profile()
     {

@@ -18,6 +18,13 @@
                 </div>
             </div>
         </div>
+        @if(\Session::has('update'))
+            <div class="alert alert-success">
+                <h4 class="alert-heading">Success</h4>
+                <p> {!! \Session::get('update') !!}</p>
+            </div>
+        @endif
+        
         <section class="section">
             <div class="card">
                 <div class="card-header">
@@ -65,7 +72,7 @@
                                         <a href="{{ url('view/detail/'.$item->id) }}">
                                             <span class="badge bg-success">Update</span>
                                         </a>  
-                                        <a href="{{ url('role/delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger">Delete</span></a>
+                                        <a href="{{ url('delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger">Delete</span></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -75,7 +82,5 @@
             </div>
         </section>
     </div>
-
-
 
 @endsection

@@ -107,51 +107,12 @@
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://soengsouy.com">Soeng Souy</a></p>
+                        href="http://soengsouy.com">Soeng Souy</a></p>
                     </div>
                 </div>
             </footer>
         </div>
     </div>
-
-    {{-- hide message js --}}
-<script>
-
-    $('#hide-message').show();
-    setTimeout(function()
-    {
-        $('#hide-message').hide();
-    },5000);
-    
-</script>
-
-{{-- view js --}}
-<script>
-    $(document).on('click','.userView',function()
-    {
-        var _this = $(this).parents('tr');
-        $('#v_id').val(_this.find('.id').text());
-        $('#v_name').val(_this.find('.name').text());
-        $('#v_email').val(_this.find('.email').text());
-        $('#v_phone_number').val(_this.find('.phone_number').text());
-        $('#v_status').val(_this.find('.status').text());
-        $('#v_role_name').val(_this.find('.role_name').text());
-    });
-</script>
-
-{{-- update js --}}
-<script>
-    $(document).on('click','.userUpdate',function()
-    {
-        var _this = $(this).parents('tr');
-        $('#e_id').val(_this.find('.id').text());
-        $('#e_name').val(_this.find('.name').text());
-        $('#e_email').val(_this.find('.email').text());
-        $('#e_phone_number').val(_this.find('.phone_number').text());
-        $('#e_status').val(_this.find('.status').text());
-        $('#e_role_name').val(_this.find('.role_name').text());
-    });
-</script>
 
     <script src="{{ URL::to('assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ URL::to('assets/js/bootstrap.bundle.min.js') }}"></script>

@@ -25,7 +25,7 @@
         </div>
         <div class="card-content">
             <div class="card-body">
-                <form class="form form-horizontal" action="" method="POST">
+                <form class="form form-horizontal" action="{{ route('update') }}" method="POST">
                     @csrf
                     
                     <input type="hidden" name="id" value="{{ $data[0]->id }}">
@@ -66,7 +66,7 @@
                                 <div class="form-group has-icon-left">
                                     <div class="position-relative">
                                         <input type="number" class="form-control"
-                                            placeholder="Mobile" name="	phone_number" value="{{ $data[0]->phone_number }}">
+                                            placeholder="Mobile" name="phone_number" value="{{ $data[0]->phone_number }}">
                                         <div class="form-control-icon">
                                             <i class="bi bi-phone"></i>
                                         </div>

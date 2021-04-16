@@ -44,10 +44,6 @@ Route::post('forget-password', [App\Http\Controllers\Auth\ForgotPasswordControll
 Route::get('reset-password/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'getPassword']);
 Route::post('reset-password', [App\Http\Controllers\Auth\ResetPasswordController::class, 'updatePassword']);
 
-// ----------------------------- form ------------------------------
-Route::get('form/test/new', [App\Http\Controllers\FormController::class, 'index'])->name('form/test/new');
-Route::post('form/save', [App\Http\Controllers\FormController::class, 'saveRecord'])->name('form/save');
-
 // ----------------------------- user profile ------------------------------
 Route::get('profile_user', [App\Http\Controllers\UserManagementController::class, 'profile'])->name('profile_user');
 Route::post('profile_user/store', [App\Http\Controllers\UserManagementController::class, 'profileStore'])->name('profile_user/store');
@@ -57,3 +53,7 @@ Route::get('userManagement', [App\Http\Controllers\UserManagementController::cla
 Route::get('view/detail/{id}', [App\Http\Controllers\UserManagementController::class, 'viewDetail']);
 Route::post('update', [App\Http\Controllers\UserManagementController::class, 'update'])->name('update');
 Route::get('delete/{id}', [App\Http\Controllers\UserManagementController::class, 'delete']);
+
+// ----------------------------- form ------------------------------
+Route::get('form/staff/new', [App\Http\Controllers\FormController::class, 'index'])->name('form/staff/new');
+Route::post('form/save', [App\Http\Controllers\FormController::class, 'saveRecord'])->name('form/save');

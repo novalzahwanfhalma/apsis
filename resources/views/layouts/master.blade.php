@@ -62,7 +62,7 @@
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="form-element-input.html">Input Information</a>
+                                    <a href="{{ route('form/staff/new') }}">Input Information</a>
                                 </li>
                             </ul>
                         </li>

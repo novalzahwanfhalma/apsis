@@ -33,9 +33,25 @@
             </div>
             <div class="card-content">
                 <div class="card-body">
-                    <form class="form form-horizontal" action="" method="POST">
+                    <form class="form form-horizontal" action="{{ route('form/save') }}" method="POST">
                         @csrf
                         <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>ID</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group has-icon-left">
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control"
+                                            placeholder="Enter user id" id="first-name-icon" name="userID">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-person"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-4">
                                     <label>Full Name</label>
@@ -73,7 +89,7 @@
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
                                             <input type="email" class="form-control"
-                                                placeholder="Enter email" id="first-name-icon" name="email">
+                                                placeholder="Enter email" id="first-name-icon" name="emailAddress">
                                             <div class="form-control-icon">
                                                 <i class="bi bi-envelope"></i>
                                             </div>
@@ -116,7 +132,7 @@
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
                                             <input type="text" class="form-control"
-                                                placeholder="Enter departement" name="departement">
+                                                placeholder="Enter departement" name="department">
                                             <div class="form-control-icon">
                                                 <i class="bi bi-folder-fill"></i>
                                             </div>
@@ -138,8 +154,7 @@
                                         </div>
                                     </div>
                                 </div>
-    
-    
+
                                 <div class="col-12 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary me-1 mb-1">Save</button>
                                     <button type="reset" class="btn btn-light-secondary me-1 mb-1">Cannel</button>

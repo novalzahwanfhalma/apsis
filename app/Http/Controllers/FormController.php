@@ -15,30 +15,37 @@ class FormController extends Controller
     }
 
     // save 
-    // public function saveRecord(Request $request)
-    // {
-    //     try{
-        
-    //     $userID       = $request->userID;
-    //     $fullName     = $request->fullName;
-    //     $emailAddress = $request->emailAddress;
-    //     $position     = $request->position;
-    //     $department   = $request->department;
+    public function saveRecord(Request $request)
+    {
+        try{
 
-    //     $Staff = new Staff();
-    //     $Staff->user_id       = $userID;
-    //     $Staff->full_name     = $fullName;
-    //     $Staff->email_address = $emailAddress;
-    //     $Staff->position      = $position;
-    //     $Staff->department    = $department;
-    //     $Staff->save();
-    //     Toastr::success('Data added successfully :)','Success');
-    //     return redirect()->back();
+        $userID       = $request->userID;
+        $fullName     = $request->fullName;
+        $sex          = $request->sex;
+        $emailAddress = $request->emailAddress;
+        $phone_number = $request->phone_number;
+        $position     = $request->position;
+        $department   = $request->department;
+        $salary       = $request->salary;
 
-    //     }catch(\Exception $e){
+        $Staff = new Staff();
+        $Staff->user_id       = $userID;
+        $Staff->full_name     = $fullName;
+        $Staff->sex           = $sex;
+        $Staff->email_address = $emailAddress;
+        $Staff->phone_number  = $phone_number;
+        $Staff->position      = $position;
+        $Staff->department    = $department;
+        $Staff->salary        = $salary;
+        $Staff->save();
 
-    //         Toastr::error('Data added fail :)','Error');
-    //         return redirect()->back();
-    //     }
-    // }
+        Toastr::success('Data added successfully :)','Success');
+        return redirect()->back();
+
+        }catch(\Exception $e){
+
+            Toastr::error('Data added fail :)','Error');
+            return redirect()->back();
+        }
+    }
 }

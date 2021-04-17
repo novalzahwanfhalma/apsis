@@ -1,6 +1,14 @@
 @extends('layouts.master')
+@section('menu')
+@extends('sidebar.usermanagement')
+@endsection
 @section('content')
-
+<div id="main">
+    <header class="mb-3">
+        <a href="#" class="burger-btn d-block d-xl-none">
+            <i class="bi bi-justify fs-3"></i>
+        </a>
+    </header>
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -44,9 +52,9 @@
                             </tr>    
                         </thead>
                         <tbody>
-                            @foreach ($data as $item)
+                            @foreach ($data as $key => $item)
                                 <tr>
-                                    <td class="id">{{ $item->id }}</td>
+                                    <td class="id">{{ ++$key }}</td>
                                     <td class="name">{{ $item->name }}</td>
                                     <td class="email">{{ $item->email }}</td>
                                     <td class="phone_number">{{ $item->phone_number }}</td>
@@ -57,13 +65,13 @@
                                     <td class="status"><span class="badge bg-danger">{{ $item->status }}</span></td>
                                     @endif
                                     @if($item->status ==null)
-                                    <td class="status"><a href="javascript:void(0)" class="badge badge-pill badge-danger">{{ $item->status }}</a></td>
+                                    <td class="status"><span class="badge bg-danger">{{ $item->status }}</span></td>
                                     @endif
                                     @if($item->role_name =='Admin')
-                                    <td class="role_name"><a href="javascript:void(0)" class="badge badge-pill badge-success">{{ $item->role_name }}</a></td>
+                                    <td class="role_name"><span  class="badge bg-success">{{ $item->role_name }}</span></td>
                                     @endif
                                     @if($item->role_name =='Normal User')
-                                    <td class="role_name"><a href="javascript:void(0)" class="badge badge-pill badge-secondary">{{ $item->role_name }}</a></td>
+                                    <td class="role_name"><span  class=" badge bg-secondary">{{ $item->role_name }}</span></td>
                                     @endif
                                     @if($item->role_name =='')
                                     <td class="role_name"><span class="badge bg-warning">{{'[N/A]'}}</span></td>
@@ -82,5 +90,16 @@
             </div>
         </section>
     </div>
-
+    <footer>
+        <div class="footer clearfix mb-0 text-muted ">
+            <div class="float-start">
+                <p>2021 &copy; Soeng Souy</p>
+            </div>
+            <div class="float-end">
+                <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                href="http://soengsouy.com">Soeng Souy</a></p>
+            </div>
+        </div>
+    </footer>
+</div>
 @endsection

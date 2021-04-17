@@ -26,13 +26,8 @@
                 </div>
             </div>
         </div>
-        @if(\Session::has('update'))
-            <div class="alert alert-success">
-                <h4 class="alert-heading">Success</h4>
-                <p> {!! \Session::get('update') !!}</p>
-            </div>
-        @endif
-        
+        {{-- message --}}
+        {!! Toastr::message() !!}
         <section class="section">
             <div class="card">
                 <div class="card-header">

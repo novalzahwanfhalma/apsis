@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 use DB;
 use App\Models\User;
 
@@ -45,14 +46,16 @@ class UserManagementController extends Controller
         ];
 
         User::where('id',$request->id)->update($update);
-        return redirect()->route('userManagement')->with('update','User has been updated success.');
+        Toastr::success('User updated successfully :)','Success');
+        return redirect()->route('userManagement');
     }
     // delete
     public function delete($id)
     {
         $delete = User::find($id);
         $delete->delete();
-        return redirect()->route('userManagement')->with('update','User has been deleted success.');
+        Toastr::success('User deleted successfully :)','Success');
+        return redirect()->route('userManagement');
     }
 }
 

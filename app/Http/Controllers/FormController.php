@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Staff;
+use DB;
 
 class FormController extends Controller
 {
@@ -12,6 +13,14 @@ class FormController extends Controller
     public function index()
     {
         return view('form.form');
+    }
+
+    // view record
+    public function viewRecord()
+    {
+        $data = DB::table('staff')->get();
+        return view('view_record.viewrecord',compact('data'));
+
     }
 
     // save 

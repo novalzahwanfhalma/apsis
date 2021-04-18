@@ -57,3 +57,4 @@ Route::get('delete/{id}', [App\Http\Controllers\UserManagementController::class,
 // ----------------------------- form ------------------------------
 Route::get('form/staff/new', [App\Http\Controllers\FormController::class, 'index'])->name('form/staff/new');
 Route::post('form/save', [App\Http\Controllers\FormController::class, 'saveRecord'])->name('form/save');
+Route::get('form/view/detail', [App\Http\Controllers\FormController::class, 'viewRecord'])->name('form/view/detail');

@@ -17,6 +17,16 @@ class FormController extends Controller
     // save 
     public function saveRecord(Request $request)
     {
+        $request->validate([
+            'userID'       => 'required|string|max:255',
+            'fullName'     => 'required|string|max:255',
+            'sex'          => 'required',
+            'emailAddress' => 'required|string|email|max:255',
+            'phone_number' => 'required|numeric|min:9',
+            'position'     => 'required|string|max:255',
+            'department'   => 'required|string|max:255',
+            'salary'       => 'required|string|max:255',
+        ]);
         try{
 
         $userID       = $request->userID;

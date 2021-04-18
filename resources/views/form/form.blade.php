@@ -39,30 +39,29 @@
                     <form class="form form-horizontal" action="{{ route('form/save') }}" method="POST">
                         @csrf
                         <div class="form-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>ID</label>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="form-group has-icon-left">
-                                    <div class="position-relative">
-                                        <input type="text" class="form-control"
-                                            placeholder="Enter user id" id="first-name-icon" name="userID">
-                                        <div class="form-control-icon">
-                                            <i class="bi bi-person"></i>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>ID</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group has-icon-left">
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control @error('userID') is-invalid @enderror" value="{{ old('userID') }}"
+                                                placeholder="Enter user id" id="first-name-icon" name="userID">
+                                            <div class="form-control-icon">
+                                                <i class="bi bi-person"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row">
+                                
                                 <div class="col-md-4">
                                     <label>Full Name</label>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control @error('fullName') is-invalid @enderror" value="{{ old('fullName') }}"
                                                 placeholder="Enter full name" id="first-name-icon" name="fullName">
                                             <div class="form-control-icon">
                                                 <i class="bi bi-person"></i>
@@ -76,7 +75,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control @error('sex') is-invalid @enderror" value="{{ old('sex') }}"
                                                 placeholder="Enter sex" id="first-name-icon" name="sex">
                                             <div class="form-control-icon">
                                                 <i class="bi bi-person"></i>
@@ -91,7 +90,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="email" class="form-control"
+                                            <input type="email" class="form-control @error('emailAddress') is-invalid @enderror" value="{{ old('emailAddress') }}"
                                                 placeholder="Enter email" id="first-name-icon" name="emailAddress">
                                             <div class="form-control-icon">
                                                 <i class="bi bi-envelope"></i>
@@ -105,7 +104,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="number" class="form-control"
+                                            <input type="number" class="form-control @error('phone_number') is-invalid @enderror" value="{{ old('phone_number') }}"
                                                 placeholder="Enter phone number" name="phone_number">
                                             <div class="form-control-icon">
                                                 <i class="bi bi-phone"></i>
@@ -120,7 +119,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control @error('position') is-invalid @enderror" value="{{ old('position') }}"
                                                 placeholder="Enter position" name="position">
                                             <div class="form-control-icon">
                                                 <i class="bi bi-bag-check-fill"></i>
@@ -134,7 +133,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control @error('department') is-invalid @enderror" value="{{ old('department') }}"
                                                 placeholder="Enter departement" name="department">
                                             <div class="form-control-icon">
                                                 <i class="bi bi-folder-fill"></i>
@@ -149,7 +148,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control @error('salary') is-invalid @enderror" value="{{ old('salary') }}"
                                                 placeholder="Enter salary" name="salary">
                                             <div class="form-control-icon">
                                                 <i class="bi bi-envelope-fill"></i>

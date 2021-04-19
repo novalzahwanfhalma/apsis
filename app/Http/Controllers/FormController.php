@@ -23,6 +23,14 @@ class FormController extends Controller
 
     }
 
+    // view detail
+    public function viewDetail($id)
+    {
+        $data = DB::table('staff')->where('id',$id)->get();
+        return view('view_record.viewdetail',compact('data'));
+
+    }
+
     // save 
     public function saveRecord(Request $request)
     {

@@ -65,7 +65,7 @@
                                         <a href="{{ url('view/detail/'.$item->id) }}">
                                             <span class="badge bg-info">Add</span>
                                         </a>
-                                        <a href="{{ url('form/view/detail/{id}'.$item->id) }}">
+                                        <a href="{{ url('form/view/detail/'.$item->id) }}">
                                             <span class="badge bg-success">Update</span>
                                         </a>    
                                         <a href="{{ url('delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger">Delete</span></a>

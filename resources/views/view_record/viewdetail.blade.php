@@ -34,7 +34,7 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal" action="{{ route('form/save') }}" method="POST">
+                        <form class="form form-horizontal" action="" method="POST">
                             @csrf
                             <div class="form-body">
                                 <div class="row">
@@ -44,8 +44,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="text" class="form-control @error('userID') is-invalid @enderror" value="{{ old('userID') }}"
-                                                    placeholder="Enter user id" id="first-name-icon" name="userID">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter user id" id="first-name-icon" name="userID" value="{{ $data[0]->user_id }}">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-person"></i>
                                                 </div>
@@ -59,8 +59,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="text" class="form-control @error('fullName') is-invalid @enderror" value="{{ old('fullName') }}"
-                                                    placeholder="Enter full name" id="first-name-icon" name="fullName">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter full name" id="first-name-icon" name="fullName" value="{{ $data[0]->full_name }}">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-person"></i>
                                                 </div>
@@ -73,8 +73,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="text" class="form-control @error('sex') is-invalid @enderror" value="{{ old('sex') }}"
-                                                    placeholder="Enter sex" id="first-name-icon" name="sex">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter sex" id="first-name-icon" name="sex" name="fullName" value="{{ $data[0]->sex }}">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-person"></i>
                                                 </div>
@@ -88,8 +88,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="email" class="form-control @error('emailAddress') is-invalid @enderror" value="{{ old('emailAddress') }}"
-                                                    placeholder="Enter email" id="first-name-icon" name="emailAddress">
+                                                <input type="email" class="form-control"
+                                                    placeholder="Enter email" id="first-name-icon" name="emailAddress" value="{{ $data[0]->email_address }}">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-envelope"></i>
                                                 </div>
@@ -102,8 +102,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="number" class="form-control @error('phone_number') is-invalid @enderror" value="{{ old('phone_number') }}"
-                                                    placeholder="Enter phone number" name="phone_number">
+                                                <input type="number" class="form-control"
+                                                    placeholder="Enter phone number" name="phone_number" value="{{ $data[0]->phone_number }}">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-phone"></i>
                                                 </div>
@@ -117,8 +117,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="text" class="form-control @error('position') is-invalid @enderror" value="{{ old('position') }}"
-                                                    placeholder="Enter position" name="position">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter position" name="position" value="{{ $data[0]->position }}">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-bag-check-fill"></i>
                                                 </div>
@@ -131,8 +131,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="text" class="form-control @error('department') is-invalid @enderror" value="{{ old('department') }}"
-                                                    placeholder="Enter departement" name="department">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter departement" name="department" value="{{ $data[0]->department }}">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-folder-fill"></i>
                                                 </div>
@@ -146,8 +146,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="text" class="form-control @error('salary') is-invalid @enderror" value="{{ old('salary') }}"
-                                                    placeholder="Enter salary" name="salary">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter salary" name="salary" value="{{ $data[0]->salary }}">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-envelope-fill"></i>
                                                 </div>

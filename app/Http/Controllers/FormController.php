@@ -20,7 +20,6 @@ class FormController extends Controller
     {
         $data = DB::table('staff')->get();
         return view('view_record.viewrecord',compact('data'));
-
     }
 
     // view detail
@@ -29,6 +28,44 @@ class FormController extends Controller
         $data = DB::table('staff')->where('id',$id)->get();
         return view('view_record.viewdetail',compact('data'));
 
+    }
+
+    // view update
+    public function viewUpdate(Request $request)
+    {
+        try{
+            $id           = $request->id;
+            $userID       = $request->userID;
+            $fullName     = $request->fullName;
+            $sex          = $request->sex;
+            $emailAddress = $request->emailAddress;
+            $phone_number = $request->phone_number;
+            $position     = $request->position;
+            $department   = $request->department;
+            $salary       = $request->salary;
+
+            $update = [
+
+                'id'            => $id,
+                'user_id'       => $userID,
+                'full_name'     => $fullName,
+                'sex'           => $sex,
+                'email_address' => $emailAddress,
+                'phone_number'  => $phone_number,
+                'position'      => $position,
+                'department'    => $department,
+                'salary'        => $salary,
+            ];
+            // return dd($update);
+
+            Staff::where('id',$request->id)->update($update);
+            Toastr::success('Data updated successfully :)','Success');
+            return redirect()->route('form/view/detail');
+        }catch(\Exception $e){
+
+            Toastr::error('Data updated fail :)','Error');
+            return redirect()->route('form/view/detail');
+        }
     }
 
     // save 

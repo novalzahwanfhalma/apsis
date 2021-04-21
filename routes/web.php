@@ -54,8 +54,9 @@ Route::get('view/detail/{id}', [App\Http\Controllers\UserManagementController::c
 Route::post('update', [App\Http\Controllers\UserManagementController::class, 'update'])->name('update');
 Route::get('delete/{id}', [App\Http\Controllers\UserManagementController::class, 'delete']);
 
-// ----------------------------- form ------------------------------
+// ----------------------------- form staff ------------------------------
 Route::get('form/staff/new', [App\Http\Controllers\FormController::class, 'index'])->name('form/staff/new');
 Route::post('form/save', [App\Http\Controllers\FormController::class, 'saveRecord'])->name('form/save');
 Route::get('form/view/detail', [App\Http\Controllers\FormController::class, 'viewRecord'])->name('form/view/detail');
 Route::get('form/view/detail/{id}', [App\Http\Controllers\FormController::class, 'viewDetail']);
+Route::post('form/view/update', [App\Http\Controllers\FormController::class, 'viewUpdate'])->name('form/view/update');

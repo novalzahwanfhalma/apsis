@@ -62,7 +62,7 @@
                                     <td class="phone_number">{{ $item->department }}</td>
                                     <td class="phone_number">{{ $item->salary }}</td>
                                     <td class="text-center">
-                                        <a href="{{ url('view/detail/'.$item->id) }}">
+                                        <a href="{{ route('form/staff/new') }}">
                                             <span class="badge bg-info">Add</span>
                                         </a>
                                         <a href="{{ url('form/view/detail/'.$item->id) }}">

@@ -60,3 +60,4 @@ Route::post('form/save', [App\Http\Controllers\FormController::class, 'saveRecor
 Route::get('form/view/detail', [App\Http\Controllers\FormController::class, 'viewRecord'])->name('form/view/detail');
 Route::get('form/view/detail/{id}', [App\Http\Controllers\FormController::class, 'viewDetail']);
 Route::post('form/view/update', [App\Http\Controllers\FormController::class, 'viewUpdate'])->name('form/view/update');
+Route::get('delete/{id}', [App\Http\Controllers\FormController::class, 'viewDelete']);

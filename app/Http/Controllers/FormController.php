@@ -112,4 +112,12 @@ class FormController extends Controller
             return redirect()->back();
         }
     }
+    // view delete
+    public function viewDelete($id)
+    {
+        $delete = Staff::find($id);
+        $delete->delete();
+        Toastr::success('Data deleted successfully :)','Success');
+        return redirect()->route('form/view/detail');
+    }
 }

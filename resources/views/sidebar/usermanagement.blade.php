@@ -31,6 +31,9 @@
                             <a href="{{ route('userManagement') }}">User Control</a>
                         </li>
                         <li class="submenu-item">
+                            <a href="{{ route('activity/log') }}">Activity Log</a>
+                        </li>
+                        <li class="submenu-item">
                             <a href="{{ route('logout') }}">Log Out</a>
                         </li>
                     </ul>
@@ -38,7 +41,7 @@
                 <li class="sidebar-title">Forms &amp; Tables</li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-hexagon-fill"></i>
+                        <i class="bi bi-file-earmark-medical-fill"></i>
                         <span>Form Elements</span>
                     </a>
                     <ul class="submenu">
@@ -49,7 +52,7 @@
                 </li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-hexagon-fill"></i>
+                        <i class="bi bi-grid-1x2-fill"></i>
                         <span>View Record</span>
                     </a>
                     <ul class="submenu">

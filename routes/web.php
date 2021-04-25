@@ -53,6 +53,9 @@ Route::get('userManagement', [App\Http\Controllers\UserManagementController::cla
 Route::get('view/detail/{id}', [App\Http\Controllers\UserManagementController::class, 'viewDetail']);
 Route::post('update', [App\Http\Controllers\UserManagementController::class, 'update'])->name('update');
 Route::get('delete/{id}', [App\Http\Controllers\UserManagementController::class, 'delete']);
+Route::get('activity/log', [App\Http\Controllers\UserManagementController::class, 'activityLog'])->name('activity/log');
+
+
 
 // ----------------------------- form staff ------------------------------
 Route::get('form/staff/new', [App\Http\Controllers\FormController::class, 'index'])->name('form/staff/new');

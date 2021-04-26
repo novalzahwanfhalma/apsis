@@ -27,8 +27,10 @@ class UserManagementController extends Controller
     // activity log
     public function activityLog()
     {
-        return dd('OK');
+        $activityLog = DB::table('user_activity_logs')->get();
+        return view('usermanagement.user_activity_log',compact('activityLog'));
     }
+
     // profile user
     public function profile()
     {

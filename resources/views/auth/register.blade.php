@@ -55,7 +55,23 @@
                                 </span>
                             @enderror
                         </div>
-                        
+
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <fieldset class="form-group">
+                                <select class="form-select @error('role_name') is-invalid @enderror" name="role_name" id="role_name">
+                                    <option selected disabled>Select Role Name</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Super Admin">Super Admin</option>
+                                    <option value="User Normal">User Normal</option>
+                                </select>
+                            </fieldset>
+                            @error('role_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" name="password" placeholder="Choose Password">
                             <div class="form-control-icon">

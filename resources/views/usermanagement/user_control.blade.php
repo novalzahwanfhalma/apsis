@@ -65,6 +65,9 @@
                                     @if($item->role_name =='Admin')
                                     <td class="role_name"><span  class="badge bg-success">{{ $item->role_name }}</span></td>
                                     @endif
+                                    @if($item->role_name =='Super Admin')
+                                    <td class="role_name"><span  class="badge bg-info">{{ $item->role_name }}</span></td>
+                                    @endif
                                     @if($item->role_name =='Normal User')
                                     <td class="role_name"><span  class=" badge bg-secondary">{{ $item->role_name }}</span></td>
                                     @endif

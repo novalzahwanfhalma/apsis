@@ -54,13 +54,18 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $email    = $request->email;
+        $password = $request->password;
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt(['email'=>$email,'password'=>$password,'status'=>'Active'])) {
+            return redirect()->intended('home');
+        }elseif (Auth::attempt(['email'=>$email,'password'=>$password,'status'=> null])) {
             return redirect()->intended('home');
         }
+        else{
+            return redirect('login')->with('error', 'Oppose! You have entered invalid credentials');
+        }
 
-        return redirect('login')->with('error', 'Oppose! You have entered invalid credentials');
     }
 
     public function logout()

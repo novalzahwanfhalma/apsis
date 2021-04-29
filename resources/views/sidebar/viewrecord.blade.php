@@ -18,7 +18,31 @@
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
-                </li> 
+                </li>
+                <li class="sidebar-item">
+                    <div class="card-body">
+                        <div class="badges">
+                            @if (Auth::user()->role_name=='Admin')
+                            <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
+                            <hr>
+                            <span>Role Name:</span>
+                            <span class="badge bg-success">Admin</span>
+                            @endif
+                            @if (Auth::user()->role_name=='Super Admin')
+                                <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
+                                <hr>
+                                <span>Role Name:</span>
+                                <span class="badge bg-info">Super Admin</span>
+                            @endif
+                            @if (Auth::user()->role_name=='Normal User')
+                                <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
+                                <hr>
+                                <span>Role Name:</span>
+                                <span class="badge bg-warning">User Normal</span>
+                            @endif
+                        </div>
+                    </div>
+                </li>
                 <li class="sidebar-title">Page &amp; Controller</li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>

@@ -54,6 +54,7 @@ Route::get('view/detail/{id}', [App\Http\Controllers\UserManagementController::c
 Route::post('update', [App\Http\Controllers\UserManagementController::class, 'update'])->name('update');
 Route::get('delete_user/{id}', [App\Http\Controllers\UserManagementController::class, 'delete']);
 Route::get('activity/log', [App\Http\Controllers\UserManagementController::class, 'activityLog'])->name('activity/log');
+Route::get('activity/login/logout', [App\Http\Controllers\UserManagementController::class, 'activityLogInLogOut'])->name('activity/login/logout');
 
 
 

@@ -24,11 +24,17 @@ class UserManagementController extends Controller
         $data = DB::table('users')->where('id',$id)->get();
         return view('usermanagement.view_users',compact('data'));
     }
-    // activity log
+    // use activity log
     public function activityLog()
     {
         $activityLog = DB::table('user_activity_logs')->get();
         return view('usermanagement.user_activity_log',compact('activityLog'));
+    }
+    // activity log
+    public function activityLogInLogOut()
+    {
+        $activityLog = DB::table('activity_logs')->get();
+        return view('usermanagement.activity_log',compact('activityLog'));
     }
 
     // profile user

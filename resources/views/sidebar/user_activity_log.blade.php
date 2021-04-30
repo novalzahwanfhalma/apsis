@@ -57,6 +57,9 @@
                         <li class="submenu-item active">
                             <a href="{{ route('activity/log') }}">User Activity Log</a>
                         </li>
+                        <li class="submenu-item">
+                            <a href="{{ route('activity/login/logout') }}">Activity Log</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="sidebar-title">Forms &amp; Tables</li>

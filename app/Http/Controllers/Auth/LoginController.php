@@ -7,7 +7,10 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
-
+use DB;
+use App\Models\User;
+use Carbon\Carbon;
+use Session;
 
 class LoginController extends Controller
 {
@@ -54,12 +57,25 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
+    
         $email    = $request->email;
         $password = $request->password;
 
+        $dt         = Carbon::now();
+        $todayDate  = $dt->toDayDateTimeString();
+
+        $activityLog = [
+
+            'name'        => $email,
+            'email'       => $email,
+            'description' => 'has log in',
+            'date_time'   => $todayDate,
+        ];
         if (Auth::attempt(['email'=>$email,'password'=>$password,'status'=>'Active'])) {
+            DB::table('activity_logs')->insert($activityLog);
             return redirect()->intended('home');
         }elseif (Auth::attempt(['email'=>$email,'password'=>$password,'status'=> null])) {
+            DB::table('activity_logs')->insert($activityLog);
             return redirect()->intended('home');
         }
         else{
@@ -70,6 +86,23 @@ class LoginController extends Controller
 
     public function logout()
     {
+        $user = Auth::User();
+        Session::put('user', $user);
+        $user=Session::get('user');
+
+        $name       = $user->name;
+        $email      = $user->email;
+        $dt         = Carbon::now();
+        $todayDate  = $dt->toDayDateTimeString();
+
+        $activityLog = [
+
+            'name'        => $name,
+            'email'       => $email,
+            'description' => 'has logged out',
+            'date_time'   => $todayDate,
+        ];
+        DB::table('activity_logs')->insert($activityLog);
         Auth::logout();
         return redirect('login');
     }

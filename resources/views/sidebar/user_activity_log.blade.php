@@ -16,7 +16,7 @@
 
                 <li class="sidebar-item">
                     <a href="{{ route('home') }}" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-house-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -55,10 +55,7 @@
                             <a href="{{ route('userManagement') }}">User Control</a>
                         </li>
                         <li class="submenu-item active">
-                            <a href="{{ route('activity/log') }}">Activity Log</a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="{{ route('logout') }}">Log Out</a>
+                            <a href="{{ route('activity/log') }}">User Activity Log</a>
                         </li>
                     </ul>
                 </li>
@@ -70,7 +67,7 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item active">
-                            <a href="{{ route('form/staff/new') }}">Input Information</a>
+                            <a href="{{ route('form/staff/new') }}">Staff Input</a>
                         </li>
                     </ul>
                 </li>
@@ -84,6 +81,12 @@
                             <a href="{{ route('form/view/detail') }}">View Detail</a>
                         </li>
                     </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('logout') }}" class='sidebar-link'>
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Log Out</span>
+                    </a>
                 </li>
             </ul>
         </div>

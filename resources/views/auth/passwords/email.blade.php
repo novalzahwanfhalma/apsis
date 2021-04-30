@@ -32,7 +32,7 @@
                     <form class="md-float-material" method="POST" action="/forget-password">
                         @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="email" class="form-control form-control-xl @error('email') is-invalid @enderror" name="email" value="{{ old('email') }} " placeholder="Email Address">
+                            <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }} " placeholder="Email Address">
                             <div class="form-control-icon">
                                 <i class="bi bi-envelope"></i>
                             </div>

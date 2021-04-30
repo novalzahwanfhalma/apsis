@@ -69,16 +69,16 @@
                                     <td class="role_name"><span  class="badge bg-info">{{ $item->role_name }}</span></td>
                                     @endif
                                     @if($item->role_name =='Normal User')
-                                    <td class="role_name"><span  class=" badge bg-secondary">{{ $item->role_name }}</span></td>
-                                    @endif
-                                    @if($item->role_name =='')
-                                    <td class="role_name"><span class="badge bg-warning">{{'[N/A]'}}</span></td>
+                                    <td class="role_name"><span  class=" badge bg-warning">{{ $item->role_name }}</span></td>
                                     @endif
                                     <td class="text-center">
+                                        <a href="#">
+                                            <span class="badge bg-info"><i class="bi bi-person-plus-fill"></i></span>
+                                        </a>
                                         <a href="{{ url('view/detail/'.$item->id) }}">
-                                            <span class="badge bg-success">Update</span>
+                                            <span class="badge bg-success"><i class="bi bi-pencil-square"></i></span>
                                         </a>  
-                                        <a href="{{ url('delete_user/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger">Delete</span></a>
+                                        <a href="{{ url('delete_user/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger"><i class="bi bi-trash"></i></span></a>
                                     </td>
                                 </tr>
                             @endforeach

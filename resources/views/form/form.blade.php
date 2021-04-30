@@ -49,7 +49,7 @@
                                             <input type="text" class="form-control @error('userID') is-invalid @enderror" value="{{ old('userID') }}"
                                                 placeholder="Enter user id" id="first-name-icon" name="userID">
                                             <div class="form-control-icon">
-                                                <i class="bi bi-person"></i>
+                                                <i class="bi bi-person-dash"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@
                                             <input type="text" class="form-control @error('fullName') is-invalid @enderror" value="{{ old('fullName') }}"
                                                 placeholder="Enter full name" id="first-name-icon" name="fullName">
                                             <div class="form-control-icon">
-                                                <i class="bi bi-person"></i>
+                                                <i class="bi bi-person-check-fill"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
                                             <input type="text" class="form-control @error('position') is-invalid @enderror" value="{{ old('position') }}"
                                                 placeholder="Enter position" name="position">
                                             <div class="form-control-icon">
-                                                <i class="bi bi-bag-check-fill"></i>
+                                                <i class="bi bi-person-badge-fill"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -136,7 +136,7 @@
                                             <input type="text" class="form-control @error('department') is-invalid @enderror" value="{{ old('department') }}"
                                                 placeholder="Enter departement" name="department">
                                             <div class="form-control-icon">
-                                                <i class="bi bi-folder-fill"></i>
+                                                <i class="bi bi-shop-window"></i>
                                             </div>
                                         </div>
                                     </div>

@@ -68,21 +68,25 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+
+                                     <div class="col-md-4">
                                         <label>Sex</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="form-group has-icon-left">
-                                            <div class="position-relative">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Enter sex" id="first-name-icon" name="sex" name="fullName" value="{{ $data[0]->sex }}">
-                                                <div class="form-control-icon">
-                                                    <i class="bi bi-person"></i>
-                                                </div>
-                                            </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sex" value="Male" {{ ($data[0]->sex=="Male")? "checked" : "" }} id="sex1">
+                                            <label class="form-check-label" for="sex1">Male</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sex" value="Female" {{ ($data[0]->sex=="Female")? "checked" : "" }} id="sex2">
+                                            <label class="form-check-label" for="sex2">Female</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sex"  value="Other" {{ ($data[0]->sex=="Other")? "checked" : "" }} id="sex3">
+                                            <label class="form-check-label" for="sex3">Other</label>
                                         </div>
                                     </div>
-        
+
                                     <div class="col-md-4">
                                         <label>Email Address</label>
                                     </div>

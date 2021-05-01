@@ -69,18 +69,22 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-md-4">
                                     <label>Sex</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <div class="form-group has-icon-left">
-                                        <div class="position-relative">
-                                            <input type="text" class="form-control @error('sex') is-invalid @enderror" value="{{ old('sex') }}"
-                                                placeholder="Enter sex" id="first-name-icon" name="sex">
-                                            <div class="form-control-icon">
-                                                <i class="bi bi-person"></i>
-                                            </div>
-                                        </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="sex" value="Male" id="male">
+                                        <label class="form-check-label" for="male">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="sex" value="Female" id="male">
+                                        <label class="form-check-label" for="male">Female</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="sex" value="Other" id="male">
+                                        <label class="form-check-label" for="male">Other</label>
                                     </div>
                                 </div>
     

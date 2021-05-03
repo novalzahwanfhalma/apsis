@@ -20,9 +20,11 @@ class UserManagementController extends Controller
     }
     // view detail 
     public function viewDetail($id)
-    {   
+    {  
         $data = DB::table('users')->where('id',$id)->get();
-        return view('usermanagement.view_users',compact('data'));
+        $roleName = DB::table('role_type_users')->get();
+        $userStatus = DB::table('user_types')->get();
+        return view('usermanagement.view_users',compact('data','roleName','userStatus'));
     }
     // use activity log
     public function activityLog()

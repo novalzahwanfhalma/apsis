@@ -21,6 +21,11 @@
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
 </head>
+<style>
+    .form-group[class*=has-icon-].has-icon-left .form-select {
+    padding-left: 2.5rem;
+}
+</style>
 
 <body>
     <div id="app">

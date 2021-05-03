@@ -86,31 +86,45 @@
                                         <label>Status</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="form-group has-icon-left">
-                                            <div class="position-relative">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Status" name="status" value="{{ $data[0]->status }}">
+                                        <div class="form-group position-relative has-icon-left mb-4">
+                                            <fieldset class="form-group">
+                                                <select class="form-select" name="status" id="status">
+                                                    <option value="{{ $data[0]->status }}" {{ ( $data[0]->status == $data[0]->status) ? 'selected' : ''}}> 
+                                                        {{ $data[0]->status }}
+                                                    </option>
+                                                    @foreach ($userStatus as $key => $value)
+                                                    <option value="{{ $value->type_name }}"> {{ $value->type_name }}</option>
+                                                    @endforeach  
+                                                </select>
                                                 <div class="form-control-icon">
-                                                    <i class="bi bi-app-indicator"></i>
+                                                    <i class="bi bi-bag-check"></i>
                                                 </div>
-                                            </div>
+                                            </fieldset>
                                         </div>
                                     </div>
+
+
                                     <div class="col-md-4">
                                         <label>Role Name</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="form-group has-icon-left">
-                                            <div class="position-relative">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Role Name" name="role_name" value="{{ $data[0]->role_name }}">
+                                        <div class="form-group position-relative has-icon-left mb-4">
+                                            <fieldset class="form-group">
+                                                <select class="form-select" name="role_name" id="role_name">
+                                                    <option value="{{ $data[0]->role_name }}" {{ ( $data[0]->role_name == $data[0]->role_name) ? 'selected' : ''}}> 
+                                                        {{ $data[0]->role_name }}
+                                                    </option>
+                                                    @foreach ($roleName as $key => $value)
+                                                    <option value="{{ $value->role_type }}"> {{ $value->role_type }}</option>
+                                                    @endforeach  
+                                                </select>
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-bag-check"></i>
                                                 </div>
-                                            </div>
+                                            </fieldset>
                                         </div>
                                     </div>
-        
+
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit"
                                             class="btn btn-primary me-1 mb-1">Update</button>

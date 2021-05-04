@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Hash;
 
 class RegisterController extends Controller
@@ -28,6 +29,7 @@ class RegisterController extends Controller
             'role_name' => $request->role_name,
             'password'  => Hash::make($request->password),
         ]);
+        Toastr::success('Create new account successfully :)','Success');
         return redirect('login');
     }
 }

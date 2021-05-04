@@ -11,6 +11,7 @@ use DB;
 use App\Models\User;
 use Carbon\Carbon;
 use Session;
+use Brian2694\Toastr\Facades\Toastr;
 
 class LoginController extends Controller
 {
@@ -57,7 +58,6 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-    
         $email    = $request->email;
         $password = $request->password;
 
@@ -73,13 +73,16 @@ class LoginController extends Controller
         ];
         if (Auth::attempt(['email'=>$email,'password'=>$password,'status'=>'Active'])) {
             DB::table('activity_logs')->insert($activityLog);
+            Toastr::success('Login successfully :)','Success');
             return redirect()->intended('home');
         }elseif (Auth::attempt(['email'=>$email,'password'=>$password,'status'=> null])) {
             DB::table('activity_logs')->insert($activityLog);
+            Toastr::success('Login successfully :)','Success');
             return redirect()->intended('home');
         }
         else{
-            return redirect('login')->with('error', 'Oppose! You have entered invalid credentials');
+            Toastr::error('fail, WRONG USERNAME OR PASSWORD :)','Error');
+            return redirect('login');
         }
 
     }
@@ -104,6 +107,7 @@ class LoginController extends Controller
         ];
         DB::table('activity_logs')->insert($activityLog);
         Auth::logout();
+        Toastr::success('Logout successfully :)','Success');
         return redirect('login');
     }
 }

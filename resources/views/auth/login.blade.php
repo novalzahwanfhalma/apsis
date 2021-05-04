@@ -7,6 +7,8 @@
                     <div class="auth-logo">
                         <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo"></a>
                     </div>
+                    {{-- message --}}
+                    {!! Toastr::message() !!}
                     <h1 class="auth-title">Log in.</h1>
                     <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
                     @if(session()->has('error'))

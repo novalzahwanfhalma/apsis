@@ -43,24 +43,28 @@
                         </div>
                     </div>
                 </li>
-                <li class="sidebar-title">Page &amp; Controller</li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-hexagon-fill"></i>
-                        <span>Maintenain</span>
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item">
-                            <a href="{{ route('userManagement') }}">User Control</a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="{{ route('activity/log') }}">User Activity Log</a>
-                        </li>
-                        <li class="submenu-item">
-                            <a href="{{ route('activity/login/logout') }}">Activity Log</a>
-                        </li>
-                    </ul>
-                </li>
+
+                @if (Auth::user()->role_name=='Admin')
+                    <li class="sidebar-title">Page &amp; Controller</li>
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-hexagon-fill"></i>
+                            <span>Maintenain</span>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item">
+                                <a href="{{ route('userManagement') }}">User Control</a>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="{{ route('activity/log') }}">User Activity Log</a>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="{{ route('activity/login/logout') }}">Activity Log</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+                
                 <li class="sidebar-title">Forms &amp; Tables</li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>

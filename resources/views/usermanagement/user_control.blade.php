@@ -72,7 +72,7 @@
                                     <td class="role_name"><span  class=" badge bg-warning">{{ $item->role_name }}</span></td>
                                     @endif
                                     <td class="text-center">
-                                        <a href="#">
+                                        <a href="{{ route('user/add/new') }}">
                                             <span class="badge bg-info"><i class="bi bi-person-plus-fill"></i></span>
                                         </a>
                                         <a href="{{ url('view/detail/'.$item->id) }}">

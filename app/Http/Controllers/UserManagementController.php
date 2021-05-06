@@ -59,6 +59,13 @@ class UserManagementController extends Controller
     {
         return view('usermanagement.profile_user');
     }
+
+    // add new user
+    public function addNewUser(Request $request)
+    {
+        return view('usermanagement.add_new_user');
+    }
+    
     // update
     public function update(Request $request)
     {

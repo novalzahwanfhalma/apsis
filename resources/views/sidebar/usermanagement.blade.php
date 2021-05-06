@@ -44,6 +44,7 @@
                         </div>
                     </div>
                 </li>
+                
                 @if (Auth::user()->role_name=='Admin')
                     <li class="sidebar-title">Page &amp; Controller</li>
                     <li class="sidebar-item  has-sub active">

@@ -50,6 +50,7 @@ Route::post('profile_user/store', [App\Http\Controllers\UserManagementController
 
 // ----------------------------- user userManagement ------------------------------
 Route::get('userManagement', [App\Http\Controllers\UserManagementController::class, 'index'])->name('userManagement');
+Route::get('user/add/new', [App\Http\Controllers\UserManagementController::class, 'addNewUser'])->name('user/add/new');
 Route::get('view/detail/{id}', [App\Http\Controllers\UserManagementController::class, 'viewDetail']);
 Route::post('update', [App\Http\Controllers\UserManagementController::class, 'update'])->name('update');
 Route::get('delete_user/{id}', [App\Http\Controllers\UserManagementController::class, 'delete']);

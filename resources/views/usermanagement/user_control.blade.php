@@ -39,7 +39,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Full Name</th>
-                                <th>Photo</th>
+                                <th>Profile</th>
                                 <th>Email Address</th>
                                 <th>Phone Number</th>
                                 <th>Status</th>
@@ -52,10 +52,9 @@
                                 <tr>
                                     <td class="id">{{ ++$key }}</td>
                                     <td class="name">{{ $item->name }}</td>
-
                                     <td class="name">
                                         <div class="avatar avatar-xl">
-                                            <img src="{{ URL::to('/images/'. $item->avatar) }}" alt="$item->avatar">
+                                            <img src="{{ URL::to('/images/'. $item->avatar) }}" alt="{{ $item->avatar }}">
                                         </div>
                                     </td>
                                     <td class="email">{{ $item->email }}</td>

@@ -11,7 +11,7 @@
                     <h1 class="auth-title">New Account</h1>
                     <p class="auth-subtitle mb-5">Input your imformation.</p>
 
-                    <form method="POST" action="{{ route('register') }}" class="md-float-material">
+                    <form method="POST" action="{{ route('user/add/save') }}" class="md-float-material" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="text" class="form-control form-control-lg @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Enter Your Name">
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input class="form-control @error('name') is-invalid @enderror" name="image" type="file" id="formFileMultiple" multiple="">
+                            <input class="form-control @error('name') is-invalid @enderror" name="image" type="file" id="image" multiple="">
                             <div class="form-control-icon">
                                 <i class="bi bi-person-square"></i>
                             </div>

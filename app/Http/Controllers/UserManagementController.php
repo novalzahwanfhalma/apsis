@@ -9,6 +9,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Session;
 use Auth;
+use Hash;
 
 
 class UserManagementController extends Controller
@@ -59,11 +60,42 @@ class UserManagementController extends Controller
     {
         return view('usermanagement.profile_user');
     }
-
+   
     // add new user
-    public function addNewUser(Request $request)
+    public function addNewUser()
     {
         return view('usermanagement.add_new_user');
+    }
+
+     // save new user
+     public function addNewUserSave(Request $request)
+     {
+
+        $request->validate([
+            'name'      => 'required|string|max:255',
+            'image'     => 'required|image',
+            'email'     => 'required|string|email|max:255|unique:users',
+            'phone'     => 'required|min:11|numeric',
+            'role_name' => 'required|string|max:255',
+            'password'  => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+
+        $image = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('images'), $image);
+
+        $user = new User;
+        $user->name         = $request->name;
+        $user->avatar       = $image;
+        $user->email        = $request->email;
+        $user->phone_number = $request->phone;
+        $user->role_name    = $request->role_name;
+        $user->password     = Hash::make($request->password);
+ 
+        $user->save();
+
+        Toastr::success('Create new account successfully :)','Success');
+        return redirect()->route('userManagement');
     }
     
     // update

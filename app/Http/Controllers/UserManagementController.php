@@ -171,6 +171,12 @@ class UserManagementController extends Controller
         Toastr::success('User deleted successfully :)','Success');
         return redirect()->route('userManagement');
     }
+
+    // view change password
+    public function changePasswordView()
+    {
+        return view('usermanagement.change_password');
+    }
 }
 
 

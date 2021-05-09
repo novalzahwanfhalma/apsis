@@ -44,6 +44,12 @@
                         </div>
                     </div>
                 </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('change/password') }}" class='sidebar-link'>
+                        <i class="bi bi-shield-lock"></i>
+                        <span>Chnage Password</span>
+                    </a>
+                </li>
                 
                 @if (Auth::user()->role_name=='Admin')
                     <li class="sidebar-title">Page &amp; Controller</li>
@@ -65,7 +71,7 @@
                         </ul>
                     </li>
                 @endif
-
+                
                 <li class="sidebar-title">Forms &amp; Tables</li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>

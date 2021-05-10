@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use DB;
 use App\Models\User;
+use App\Rules\MatchOldPassword;
 use Carbon\Carbon;
 use Session;
 use Auth;
@@ -176,6 +177,20 @@ class UserManagementController extends Controller
     public function changePasswordView()
     {
         return view('usermanagement.change_password');
+    }
+    
+    // change password in db
+    public function changePasswordDB(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+   
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        Toastr::success('User change successfully :)','Success');
+        return redirect()->route('home');
     }
 }
 

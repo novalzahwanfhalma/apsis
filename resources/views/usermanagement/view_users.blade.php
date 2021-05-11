@@ -4,6 +4,18 @@
 @endsection
 @section('content')
 <div id="main">
+    <style>
+        .avatar.avatar-im .avatar-content, .avatar.avatar-xl img {
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 1rem !important;
+        }
+        .form-group[class*=has-icon-].has-icon-lefts .form-select {
+            padding-left: 2rem;
+        }
+
+    </style>
+    
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
             <i class="bi bi-justify fs-3"></i>
@@ -35,7 +47,6 @@
                     <div class="card-body">
                         <form class="form form-horizontal" action="{{ route('update') }}" method="POST">
                             @csrf
-                            
                             <input type="hidden" name="id" value="{{ $data[0]->id }}">
                             <div class="form-body">
                                 <div class="row">
@@ -53,6 +64,22 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="col-md-4">
+                                        <label>Photo</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group has-icon-lefts">
+                                            <div class="position-relative">
+                                                <input type="file" class="form-control"
+                                                placeholder="Name" id="first-name-icon" name="image" multiple="">
+                                                <div class="form-control-icon avatar avatar.avatar-im">
+                                                    <img src="{{ URL::to('/images/'. $data[0]->avatar) }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-4">
                                         <label>Email Address</label>
                                     </div>

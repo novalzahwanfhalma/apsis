@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input class="form-control @error('name') is-invalid @enderror" name="image" type="file" id="image" multiple="">
+                            <input class="form-control @error('image') is-invalid @enderror" name="image" type="file" id="image" multiple="">
                             <div class="form-control-icon">
                                 <i class="bi bi-person-square"></i>
                             </div>

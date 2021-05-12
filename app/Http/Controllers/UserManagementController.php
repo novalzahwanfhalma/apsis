@@ -111,11 +111,22 @@ class UserManagementController extends Controller
 
         $dt       = Carbon::now();
         $todayDate = $dt->toDayDateTimeString();
+
+        if($image = $fullName.'.'.$request->image->extension())
+        {
+            $image = $fullName.'.'. $request->image->extension();  
+            $request->image->move(public_path('images'), $image);
+        }
+        else{
+            unset($image);
+        }
+       
         
         $update = [
 
             'id'           => $id,
             'name'         => $fullName,
+            'avatar'       => $image,
             'email'        => $email,
             'phone_number' => $phone_number,
             'status'       => $status,

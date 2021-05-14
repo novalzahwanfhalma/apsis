@@ -72,10 +72,11 @@
                                         <div class="form-group has-icon-lefts">
                                             <div class="position-relative">
                                                 <input type="file" class="form-control"
-                                                placeholder="Name" id="first-name-icon" name="image" multiple="">
+                                                placeholder="Name" id="first-name-icon" name="image"/>
                                                 <div class="form-control-icon avatar avatar.avatar-im">
                                                     <img src="{{ URL::to('/images/'. $data[0]->avatar) }}">
                                                 </div>
+                                                <input type="hidden" name="hidden_image" value="{{ $data[0]->avatar }}">
                                             </div>
                                         </div>
                                     </div>

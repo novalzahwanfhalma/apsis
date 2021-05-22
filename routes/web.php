@@ -35,6 +35,7 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 
 // ----------------------------- lock screen -----------------------------------------
 Route::get('lock_screen', [App\Http\Controllers\LockScreen::class, 'lockScreen'])->name('lock_screen');
+Route::post('unlock', [App\Http\Controllers\LockScreen::class, 'unlock'])->name('unlock');
 
 // ------------------------------register---------------------------------------
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');

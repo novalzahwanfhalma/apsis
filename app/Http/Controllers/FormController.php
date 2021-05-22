@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Staff;
+use App\Models\IDGenerate;
+use App\Models\User;
+
+use App\Helpers\Helper;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 use DB;
 
 class FormController extends Controller
@@ -70,9 +75,17 @@ class FormController extends Controller
 
     // save 
     public function saveRecord(Request $request)
-    {
+    { 
+
+        // $id = IdGenerator::generate(['table' => 'i_d_generates', 'length' => 10, 'prefix' =>'INV-']);
+        //output: INV-000001
+        // $config = ['table' => 'i_d_generates', 'length' => 10, 'prefix' =>'INV-'];
+        // $id = IdGenerator::generate($config);
+
+    //    \DB::table('i_d_generates')->insert(['id'=>$id]);
+    //     return $id;
+
         $request->validate([
-            'userID'       => 'required|string|max:255',
             'fullName'     => 'required|string|max:255',
             'sex'          => 'required',
             'emailAddress' => 'required|string|email|max:255',
@@ -82,8 +95,6 @@ class FormController extends Controller
             'salary'       => 'required|string|max:255',
         ]);
         try{
-
-        $userID       = $request->userID;
         $fullName     = $request->fullName;
         $sex          = $request->sex;
         $emailAddress = $request->emailAddress;
@@ -93,7 +104,6 @@ class FormController extends Controller
         $salary       = $request->salary;
 
         $Staff = new Staff();
-        $Staff->user_id       = $userID;
         $Staff->full_name     = $fullName;
         $Staff->sex           = $sex;
         $Staff->email_address = $emailAddress;
@@ -112,6 +122,7 @@ class FormController extends Controller
             return redirect()->back();
         }
     }
+
     // view delete
     public function viewDelete($id)
     {

@@ -96,6 +96,12 @@
                     </ul>
                 </li>
                 <li class="sidebar-item">
+                    <a href="{{ route('lock_screen') }}" class='sidebar-link'>
+                        <i class="bi bi-lock-fill"></i>
+                        <span>Lock Screen</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a href="{{ route('logout') }}" class='sidebar-link'>
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Log Out</span>

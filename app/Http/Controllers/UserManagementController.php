@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use DB;
 use App\Models\User;
+use App\Models\Form;
 use App\Rules\MatchOldPassword;
 use Carbon\Carbon;
 use Session;
@@ -111,7 +112,9 @@ class UserManagementController extends Controller
 
         $dt       = Carbon::now();
         $todayDate = $dt->toDayDateTimeString();
-
+        
+        $old_image = User::find($id);
+     
         $image_name = $request->hidden_image;
         $image = $request->file('image');
 
@@ -119,6 +122,7 @@ class UserManagementController extends Controller
         {
             $image_name = rand() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_name);
+            unlink('images/'.$old_image->avatar);
         }
         
         $update = [

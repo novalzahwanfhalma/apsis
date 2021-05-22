@@ -41,21 +41,6 @@
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label>ID</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group has-icon-left">
-                                        <div class="position-relative">
-                                            <input type="text" class="form-control @error('userID') is-invalid @enderror" value="{{ old('userID') }}"
-                                                placeholder="Enter user id" id="first-name-icon" name="userID">
-                                            <div class="form-control-icon">
-                                                <i class="bi bi-person-dash"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4">
                                     <label>Full Name</label>
                                 </div>
                                 <div class="col-md-8">

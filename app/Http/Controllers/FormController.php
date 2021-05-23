@@ -7,7 +7,6 @@ use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Staff;
 use App\Models\IDGenerate;
 use App\Models\User;
-
 use App\Helpers\Helper;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use DB;
@@ -76,14 +75,15 @@ class FormController extends Controller
     // save 
     public function saveRecord(Request $request)
     { 
-
-        // $id = IdGenerator::generate(['table' => 'i_d_generates', 'length' => 10, 'prefix' =>'INV-']);
-        //output: INV-000001
+ 
+        // $id = IdGenerator::generate(['table' => 'i_d_generates', 'length' => 20, 'prefix' =>'INV-']);
+        // return dd($id);
+        // // output: INV-000001
         // $config = ['table' => 'i_d_generates', 'length' => 10, 'prefix' =>'INV-'];
         // $id = IdGenerator::generate($config);
 
-    //    \DB::table('i_d_generates')->insert(['id'=>$id]);
-    //     return $id;
+        // \DB::table('i_d_generates')->insert(['id'=>$id]);
+        // return $id;
 
         $request->validate([
             'fullName'     => 'required|string|max:255',
@@ -95,26 +95,26 @@ class FormController extends Controller
             'salary'       => 'required|string|max:255',
         ]);
         try{
-        $fullName     = $request->fullName;
-        $sex          = $request->sex;
-        $emailAddress = $request->emailAddress;
-        $phone_number = $request->phone_number;
-        $position     = $request->position;
-        $department   = $request->department;
-        $salary       = $request->salary;
+            $fullName     = $request->fullName;
+            $sex          = $request->sex;
+            $emailAddress = $request->emailAddress;
+            $phone_number = $request->phone_number;
+            $position     = $request->position;
+            $department   = $request->department;
+            $salary       = $request->salary;
 
-        $Staff = new Staff();
-        $Staff->full_name     = $fullName;
-        $Staff->sex           = $sex;
-        $Staff->email_address = $emailAddress;
-        $Staff->phone_number  = $phone_number;
-        $Staff->position      = $position;
-        $Staff->department    = $department;
-        $Staff->salary        = $salary;
-        $Staff->save();
+            $Staff = new Staff();
+            $Staff->full_name     = $fullName;
+            $Staff->sex           = $sex;
+            $Staff->email_address = $emailAddress;
+            $Staff->phone_number  = $phone_number;
+            $Staff->position      = $position;
+            $Staff->department    = $department;
+            $Staff->salary        = $salary;
+            $Staff->save();
 
-        Toastr::success('Data added successfully :)','Success');
-        return redirect()->back();
+            Toastr::success('Data added successfully :)','Success');
+            return redirect()->back();
 
         }catch(\Exception $e){
 

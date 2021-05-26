@@ -114,16 +114,28 @@ class UserManagementController extends Controller
         $todayDate = $dt->toDayDateTimeString();
         
         $old_image = User::find($id);
-     
+
         $image_name = $request->hidden_image;
         $image = $request->file('image');
 
-        if($image != '')
+        if($old_image->avatar=='photo_defaults.jpg')
         {
-            $image_name = rand() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $image_name);
-            unlink('images/'.$old_image->avatar);
+            if($image != '')
+            {
+                $image_name = rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images'), $image_name);
+            }
         }
+        else{
+            
+            if($image != '')
+            {
+                $image_name = rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images'), $image_name);
+                unlink('images/'.$old_image->avatar);
+            }
+        }
+        
         
         $update = [
 

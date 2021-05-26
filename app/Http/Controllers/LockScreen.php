@@ -14,12 +14,12 @@ class LockScreen extends Controller
     {
         if(!session('lock-expires-at'))
         {
-            return redirect('/');
+            return redirect('home');
         }
 
         if(session('lock-expires-at') > now())
         {
-            return redirect('/');
+            return redirect('home');
         }
         return view('lockscreen.lockscreen');
     }

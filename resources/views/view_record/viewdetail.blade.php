@@ -46,7 +46,7 @@
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
                                                 <input type="text" class="form-control"
-                                                    placeholder="Enter user id" id="first-name-icon" name="userID" value="{{ $data[0]->user_id }}">
+                                                    placeholder="Enter user id" id="first-name-icon" name="userID" value="{{ $data[0]->rec_id }}" readonly>
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-person"></i>
                                                 </div>

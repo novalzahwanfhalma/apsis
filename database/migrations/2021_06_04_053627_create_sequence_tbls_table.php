@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIDGeneratesTable extends Migration
+class CreateSequenceTblsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateIDGeneratesTable extends Migration
      */
     public function up()
     {
-        Schema::create('i_d_generates', function (Blueprint $table) {
+        Schema::create('sequence_tbls', function (Blueprint $table) {
             $table->id();
-            $table->string('rec_id')->nullable();
-            $table->timestamps();
         });
     }
 
@@ -27,6 +25,6 @@ class CreateIDGeneratesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('i_d_generates');
+        Schema::dropIfExists('sequence_tbls');
     }
 }

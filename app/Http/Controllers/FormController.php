@@ -74,17 +74,7 @@ class FormController extends Controller
 
     // save 
     public function saveRecord(Request $request)
-    { 
- 
-        // $id = IdGenerator::generate(['table' => 'i_d_generates', 'length' => 20, 'prefix' =>'INV-']);
-        // return dd($id);
-        // // output: INV-000001
-        // $config = ['table' => 'i_d_generates', 'length' => 10, 'prefix' =>'INV-'];
-        // $id = IdGenerator::generate($config);
-
-        // \DB::table('i_d_generates')->insert(['id'=>$id]);
-        // return $id;
-
+    {
         $request->validate([
             'fullName'     => 'required|string|max:255',
             'sex'          => 'required',

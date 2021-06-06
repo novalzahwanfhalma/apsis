@@ -39,7 +39,7 @@ class FormController extends Controller
     {
         try{
             $id           = $request->id;
-            $userID       = $request->userID;
+            $rec_id       = $request->rec_id;
             $fullName     = $request->fullName;
             $sex          = $request->sex;
             $emailAddress = $request->emailAddress;

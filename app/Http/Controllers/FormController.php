@@ -51,7 +51,7 @@ class FormController extends Controller
             $update = [
 
                 'id'            => $id,
-                'user_id'       => $userID,
+                'rec_id'        => $rec_id,
                 'full_name'     => $fullName,
                 'sex'           => $sex,
                 'email_address' => $emailAddress,

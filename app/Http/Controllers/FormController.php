@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Staff;
-use App\Models\IDGenerate;
 use App\Models\User;
-use App\Helpers\Helper;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use DB;
 
@@ -60,8 +58,6 @@ class FormController extends Controller
                 'department'    => $department,
                 'salary'        => $salary,
             ];
-            // return dd($update);
-
             Staff::where('id',$request->id)->update($update);
             Toastr::success('Data updated successfully :)','Success');
             return redirect()->route('form/view/detail');

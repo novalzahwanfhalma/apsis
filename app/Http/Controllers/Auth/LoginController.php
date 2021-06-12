@@ -66,7 +66,7 @@ class LoginController extends Controller
         $password = $request->password;
 
         $remember_me    =   $request->has('remember_me')? true:false;
-        if(auth()->attempt(['email'=>$email,'password'=>$password],$remember_me))
+        if(auth()->attempt(['email'=>$email,'password'=>$password,'status'=>'Active'],$remember_me))
         {
             $user = auth()->user();
         }else{

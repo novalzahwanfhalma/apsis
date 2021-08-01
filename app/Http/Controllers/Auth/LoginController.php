@@ -64,16 +64,7 @@ class LoginController extends Controller
 
         $email    = $request->email;
         $password = $request->password;
-
-        $remember_me    =   $request->has('remember_me')? true:false;
-        if(auth()->attempt(['email'=>$email,'password'=>$password,'status'=>'Active'],$remember_me))
-        {
-            $user = auth()->user();
-        }else{
-            Toastr::error('fail, WRONG USERNAME OR PASSWORD:)','Error');
-            return back();
-        }
-
+        
         $dt         = Carbon::now();
         $todayDate  = $dt->toDayDateTimeString();
 

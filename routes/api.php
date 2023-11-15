@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SurveiApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/survei', [SurveiApiController::class, 'index']);
+// route register API
+Route::post('/register', [SurveiApiController::class, 'register']);
+// route login API
+Route::post('/login', [SurveiApiController::class, 'login']);

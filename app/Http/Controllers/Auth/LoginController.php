@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Auth;
-use DB;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Klien;
 use Carbon\Carbon;
 use Session;
 use Brian2694\Toastr\Facades\Toastr;
@@ -47,72 +46,81 @@ class LoginController extends Controller
             'locked',
             'unlock'
         ]);
+        // $this->middleware('guest:admin')->except([
+        //     'logout',
+        //     'locked',
+        //     'unlock'
+        // ]);
     }
 
     public function login()
     {
 
-    return view('auth.login');
+        return view('auth.login');
     }
 
     public function authenticate(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|email',
+            'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        $email    = $request->email;
+        $username    = $request->username;
         $password = $request->password;
-        
+
         $dt         = Carbon::now();
         $todayDate  = $dt->toDayDateTimeString();
 
-        $activityLog = [
-
-            'name'        => $email,
-            'email'       => $email,
-            'description' => 'has log in',
-            'date_time'   => $todayDate,
-        ];
-        if (Auth::attempt(['email'=>$email,'password'=>$password,'status'=>'Active'])) {
-            DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully :)','Success');
-            return redirect()->intended('home');
-        }elseif (Auth::attempt(['email'=>$email,'password'=>$password,'status'=> null])) {
-            DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully :)','Success');
-            return redirect()->intended('home');
-        }
-        else{
-            Toastr::error('fail, WRONG USERNAME OR PASSWORD :)','Error');
+        // if ($request->role == 'klien') {
+            if (Auth::attempt(['username' => $username, 'password' => $password])) {
+                Toastr::success('Autentikasi Berhasil :)', 'Sukses!');
+                return redirect()->intended('/dashboard_klien');
+            }
+            Toastr::error('Gagal, Username atau Password Salah :)', 'Error');
             return redirect('login');
+        // } elseif ($request->role == 'admin') {
+        //     if (Auth::guard('admin')->attempt(['username' => $username, 'password' => $password])) {
+        //         Toastr::success('Login successfully :)', 'Success');
+        //         return redirect()->intended('/dashboard_admin');
+        //     }
+        //     Toastr::error('fail, WRONG USERNAME OR PASSWORD :)', 'Error');
+        //     return redirect('login');
+        // } else {
+        //     Toastr::error('fail, WRONG USERNAME OR PASSWORD :)', 'Error');
+        //     return redirect('login');
         }
-
-    }
+        // if (Auth::attempt(['username'=>$username,'password'=>$password])) {
+        //     Toastr::success('Login successfully :)','Success');
+        //     return redirect()->intended('/');
+        // }elseif (Auth::guard('admin')->attempt(['username'=>$username,'password'=>$password])) {
+        //     Toastr::success('Login successfully :)','Success');
+        //     return redirect()->intended('/');
+        // }
+        // else{
+        //     Toastr::error('fail, WRONG USERNAME OR PASSWORD :)','Error');
+        //     return redirect('login');
+        // }
+    // }
 
     public function logout()
     {
-        $user = Auth::User();
-        Session::put('user', $user);
-        $user=Session::get('user');
+        // $klien = Auth::logout();
+        // $admin = Auth::Admin();
+        // Session::put('klien', $klien);
+        // Session::put('admin', $admin);
+        // $admin=Session::get('admin');
+        // $klien=Session::get('klien');
 
-        $name       = $user->name;
-        $email      = $user->email;
-        $dt         = Carbon::now();
-        $todayDate  = $dt->toDayDateTimeString();
-
-        $activityLog = [
-
-            'name'        => $name,
-            'email'       => $email,
-            'description' => 'has logged out',
-            'date_time'   => $todayDate,
-        ];
-        DB::table('activity_logs')->insert($activityLog);
+        // $username       = $klien->username;
+        // $username       = $admin->username;
+        // $email      = $klien->email;
+        // $email      = $admin->email;
+        // $dt         = Carbon::now();
+        // $todayDate  = $dt->toDayDateTimeString();
         Auth::logout();
-        Toastr::success('Logout successfully :)','Success');
+        // Auth::guard('admin')->logout();
+        Toastr::success('Anda Berhasil Keluar :)', 'Sukses!');
         return redirect('login');
     }
-
 }

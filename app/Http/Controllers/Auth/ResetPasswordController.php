@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
-use App\Models\User;
+use App\Models\Klien;
 use Hash;
 
 class ResetPasswordController extends Controller
@@ -16,7 +16,7 @@ class ResetPasswordController extends Controller
     public function updatePassword(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|exists:users',
+            'email' => 'required|email|exists:  en',
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required',
 
@@ -29,7 +29,7 @@ class ResetPasswordController extends Controller
         if(!$updatePassword)
             return back()->withInput()->with('error', 'Invalid token!');
 
-          $user = User::where('email', $request->email)
+          $user = Auth::where('email', $request->email)
                       ->update(['password' => Hash::make($request->password)]);
 
           DB::table('password_resets')->where(['email'=> $request->email])->delete();

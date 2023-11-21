@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 1. Pindahkan aplikasi dengan folder 'apsis project' ke htdocs(jika menggunakan xampp) 
+=======
+1. Pindahkan aplikasi dengan folder 'apsis project' ke htdocs(jika menggunakan xampp)
+>>>>>>> 1b4a7897a326c4dc9000b8ed05b7beb20decce14
    atau
    Pindahkan aplikasi dengan folder 'apsis project' ke www(jika menggunakan laragon)
 
@@ -7,4 +11,8 @@
 3. Jalankan perintah berikut ini di command prompt di halaman direktori project apsis_project
    php artisan migrate
    php artisan db:seeder
+<<<<<<< HEAD
    php artisan serve
+=======
+   php artisan serve
+>>>>>>> 1b4a7897a326c4dc9000b8ed05b7beb20decce14

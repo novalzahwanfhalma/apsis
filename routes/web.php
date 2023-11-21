@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -21,47 +22,45 @@ use App\Http\Controllers\LockScreen;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
 
-Route::group(['middleware'=>'auth'],function()
-{
-    Route::get('home',function()
-    {
-        return view('home');
-    });
-    Route::get('home',function()
-    {
-        return view('home');
-    });
-});
 
-Auth::routes();
+
+
 
 // ----------------------------- home dashboard ------------------------------//
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [LandingController::class, 'index'])->name('landing.index');
+
 
 // -----------------------------login----------------------------------------//
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'authenticate']);
-Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-// ----------------------------- lock screen --------------------------------//
-Route::get('lock_screen', [App\Http\Controllers\LockScreen::class, 'lockScreen'])->middleware('auth')->name('lock_screen');
-Route::post('unlock', [App\Http\Controllers\LockScreen::class, 'unlock'])->name('unlock');
+Route::get('/loginadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'login'])->name('login_admin');
+Route::post('/loginadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'authenticate']);
 
 // ------------------------------ register ---------------------------------//
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'storeUser'])->name('register');
 
-// ----------------------------- forget password ----------------------------//
-Route::get('forget-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'getEmail'])->name('forget-password');
-Route::post('forget-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'postEmail'])->name('forget-password');
-
 // ----------------------------- reset password -----------------------------//
 Route::get('reset-password/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'getPassword']);
 Route::post('reset-password', [App\Http\Controllers\Auth\ResetPasswordController::class, 'updatePassword']);
+
+// ----------------------------- home dashboard ------------------------------//
+// Route::get('/dashboard1', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard_klien', [App\Http\Controllers\KlienController::class, 'index'])->name('home_klien');
+Route::get('/dashboard_admin', [App\Http\Controllers\AdminController::class, 'index'])->name('home_admin');
+
+Route::get('/buatsurvei', [App\Http\Controllers\KlienController::class, 'create'])->name('buat_survei');
+Route::get('/daftar_pembayaran', [App\Http\Controllers\KlienController::class, 'daftar_pembayaran'])->name('daftar_pembayaran');
+Route::get('/pembayaran', [App\Http\Controllers\KlienController::class, 'pembayaran'])->name('pembayaran');
+
+
+
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::get('/logoutadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'logout'])->name('logout_admin');
+
+
 
 // ----------------------------- user profile ------------------------------//
 Route::get('profile_user', [App\Http\Controllers\UserManagementController::class, 'profile'])->name('profile_user');
@@ -74,16 +73,11 @@ Route::post('user/add/save', [App\Http\Controllers\UserManagementController::cla
 Route::get('view/detail/{id}', [App\Http\Controllers\UserManagementController::class, 'viewDetail'])->middleware('auth');
 Route::post('update', [App\Http\Controllers\UserManagementController::class, 'update'])->name('update');
 Route::get('delete_user/{id}', [App\Http\Controllers\UserManagementController::class, 'delete'])->middleware('auth');
-Route::get('activity/log', [App\Http\Controllers\UserManagementController::class, 'activityLog'])->middleware('auth')->name('activity/log');
-Route::get('activity/login/logout', [App\Http\Controllers\UserManagementController::class, 'activityLogInLogOut'])->middleware('auth')->name('activity/login/logout');
 
-Route::get('change/password', [App\Http\Controllers\UserManagementController::class, 'changePasswordView'])->middleware('auth')->name('change/password');
-Route::post('change/password/db', [App\Http\Controllers\UserManagementController::class, 'changePasswordDB'])->name('change/password/db');
+Route::get('/change/password', [App\Http\Controllers\UserManagementController::class, 'changePasswordView'])
+    ->middleware('auth')
+    ->name('change/password');
 
-// ----------------------------- form staff ------------------------------//
-Route::get('form/staff/new', [App\Http\Controllers\FormController::class, 'index'])->middleware('auth')->name('form/staff/new');
-Route::post('form/save', [App\Http\Controllers\FormController::class, 'saveRecord'])->name('form/save');
-Route::get('form/view/detail', [App\Http\Controllers\FormController::class, 'viewRecord'])->middleware('auth')->name('form/view/detail');
-Route::get('form/view/detail/{id}', [App\Http\Controllers\FormController::class, 'viewDetail'])->middleware('auth');
-Route::post('form/view/update', [App\Http\Controllers\FormController::class, 'viewUpdate'])->name('form/view/update');
-Route::get('delete/{id}', [App\Http\Controllers\FormController::class, 'viewDelete'])->middleware('auth');
+Route::post('/change/password/db', [App\Http\Controllers\UserManagementController::class, 'changePasswordDB'])
+    ->name('change/password/db');
+

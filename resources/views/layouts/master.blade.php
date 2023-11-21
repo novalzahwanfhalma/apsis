@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>soengsouy.com</title>
+    <title>APSIS</title>
     <link rel="shortcut icon" href="{{ URL::to('assets/images/favicon.png') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -53,7 +53,8 @@
 
     <script src="{{ URL::to('assets/js/main.js') }}"></script>
 
-    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
 </body>
 

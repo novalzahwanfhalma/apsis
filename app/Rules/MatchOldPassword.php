@@ -16,7 +16,8 @@ class MatchOldPassword implements Rule
      */
     public function passes($attribute, $value)
     {
-        return Hash::check($value, auth()->user()->password);
+        return Hash::check($value, auth()->klien()->password);
+        return Hash::check($value, auth()->admin()->password);
     }
    
     /**

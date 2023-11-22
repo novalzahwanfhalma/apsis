@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use DB;
-use App\Models\User;
+use App\Models\Klien;
 use App\Models\Form;
 use App\Rules\MatchOldPassword;
 use Carbon\Carbon;
@@ -18,44 +18,42 @@ class UserManagementController extends Controller
 {
     public function index()
     {
-        if (Auth::user()->role_name=='Admin')
-        {
-            $data = DB::table('users')->get();
+        // if (Auth::user()->role_name=='Admin')
+        // {
+            $data = DB::table('klien')->get();
             return view('usermanagement.user_control',compact('data'));
-        }
-        else
-        {
-            return redirect()->route('home');
-        }
+        // }
+        // else
+        // {
+        //     return redirect()->route('home');
+        // }
         
     }
     // view detail 
     public function viewDetail($id)
     {  
-        if (Auth::user()->role_name=='Admin')
-        {
-            $data = DB::table('users')->where('id',$id)->get();
-            $roleName = DB::table('role_type_users')->get();
-            $userStatus = DB::table('user_types')->get();
-            return view('usermanagement.view_users',compact('data','roleName','userStatus'));
-        }
-        else
-        {
-            return redirect()->route('home');
-        }
+        // if (Auth::user()->role_name=='Admin')
+        // {
+            $data = DB::table('klien')->where('id',$id)->get();
+            return view('usermanagement.view_users',compact('data'));
+        // }
+        // else
+        // {
+        //     return redirect()->route('home');
+        // }
     }
     // use activity log
-    public function activityLog()
-    {
-        $activityLog = DB::table('user_activity_logs')->get();
-        return view('usermanagement.user_activity_log',compact('activityLog'));
-    }
-    // activity log
-    public function activityLogInLogOut()
-    {
-        $activityLog = DB::table('activity_logs')->get();
-        return view('usermanagement.activity_log',compact('activityLog'));
-    }
+    // public function activityLog()
+    // {
+    //     $activityLog = DB::table('user_activity_logs')->get();
+    //     return view('usermanagement.user_activity_log',compact('activityLog'));
+    // }
+    // // activity log
+    // public function activityLogInLogOut()
+    // {
+    //     $activityLog = DB::table('activity_logs')->get();
+    //     return view('usermanagement.activity_log',compact('activityLog'));
+    // }
 
     // profile user
     public function profile()
@@ -215,7 +213,7 @@ class UserManagementController extends Controller
             'new_confirm_password' => ['same:new_password'],
         ]);
    
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        User::find(auth()->kasir()->id)->update(['password'=> Hash::make($request->new_password)]);
         Toastr::success('User change successfully :)','Success');
         return redirect()->route('home');
     }

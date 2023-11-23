@@ -19,7 +19,7 @@ class AdminController extends Controller
         $klien = Klien::count();
         $admin = Admin::count();
 
-        return view('admin.home_admin',compact('klien', 'admin'));
+        return view('admin.home_admin', compact('klien', 'admin'));
     }
 
     /**
@@ -86,5 +86,10 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function sortir_admin()
+    {
+        return view('admin.sortir_admin');
     }
 }

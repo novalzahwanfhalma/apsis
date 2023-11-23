@@ -11,10 +11,10 @@
         </header>
         <div class="page-heading">
             <section class="row">
-                <div class="col-12 col-lg-9">
+                <div class="col-lg-9" style="height: 100px;">
                     <h3>Selamat Datang</h3>
                 </div>
-                <div class="col-3 col-lg-3">
+                <div class="col-3 col-lg-3" style="height: 100px;">
                     <div class="card" data-bs-toggle="modal" data-bs-target="#default">
                         <div class="card-body py-4 px-4">
                             <div class="d-flex align-items-center">
@@ -142,9 +142,9 @@
         {!! Toastr::message() !!}
         <div class="page-content">
             <section class="row">
-                <div class="col-12 col-lg-9">
+                <div class="col-12 col-lg-12">
                     <div class="row">
-                        <div class="col-6 col-lg-6 col-md-6">
+                        <div class="col-6 col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-body px-3 py-4-5">
                                     <div class="row">
@@ -164,7 +164,7 @@
                             </div>
                         </div>
                         @if (auth('admin')->user())
-                            <div class="col-6 col-lg-6 col-md-6">
+                            <div class="col-6 col-lg-4 col-md-6">
                                 <div class="card">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="row">
@@ -184,6 +184,26 @@
                                 </div>
                             </div>
                         @endif
+                        <div class="col-6 col-lg-4 col-md-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-4-5">
+                                    <div class="row">
+                                        <div class="col-md-4 d-flex justify-content-center align-items-center">
+                                            <div class="stats-icon green" style="padding-bottom: 10px; padding-right: 10px;">
+                                                <i class="bi bi-file-text-fill"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h6 class="text-muted font-semibold">Survei Total</h6>
+                                            <h6 class="font-extrabold mb-0">
+                                                {{ $klien }}
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>

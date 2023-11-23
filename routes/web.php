@@ -9,6 +9,8 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\LockScreen;
+use App\Http\Controllers\AdminController;
+
 
 
 /*
@@ -52,7 +54,11 @@ Route::get('/dashboard_klien', [App\Http\Controllers\KlienController::class, 'in
 Route::get('/dashboard_admin', [App\Http\Controllers\AdminController::class, 'index'])->name('home_admin');
 
 Route::get('/buatsurvei', [App\Http\Controllers\KlienController::class, 'create'])->name('buat_survei');
+Route::get('/daftar_pembayaran', [App\Http\Controllers\KlienController::class, 'daftar_pembayaran'])->name('daftar_pembayaran');
+Route::get('/pembayaran', [App\Http\Controllers\KlienController::class, 'pembayaran'])->name('pembayaran');
 
+// ----------------------------- menu sidebar admin ------------------------------//
+Route::get('/sortir_admin', [App\Http\Controllers\AdminController::class, 'sortir_admin'])->name('sortir_admin');
 
 
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

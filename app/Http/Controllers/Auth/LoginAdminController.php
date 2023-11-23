@@ -55,7 +55,7 @@ class LoginAdminController extends Controller
             'password' => 'required|string',
         ]);
 
-        $username    = $request->username;
+        $username = $request->username;
         $password = $request->password;
 
         $dt         = Carbon::now();

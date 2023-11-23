@@ -41,6 +41,18 @@ class KlienController extends Controller
         //
     }
 
+
+    public function pembayaran()
+    {
+        return view('klien.pembayaran');
+    }
+
+    public function daftar_pembayaran()
+    {
+        return view('klien.daftar_pembayaran');
+    }
+
+
     /**
      * Display the specified resource.
      *

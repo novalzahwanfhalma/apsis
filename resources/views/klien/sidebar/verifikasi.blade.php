@@ -38,13 +38,13 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item active">
+                <li class="sidebar-item">
                     <a href="{{ route('daftar_pembayaran') }}" class='sidebar-link'>
                         <i class="bi bi-credit-card-fill"></i>
                         <span>Pembayaran</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item active">
                     <a href="{{ route('verifikasi') }}" class='sidebar-link'>
                         <i class="bi bi-patch-check-fill"></i>
                         <span>Verifikasi</span>

@@ -171,7 +171,7 @@
                                     <textarea class="form-control" id="exampleFormControlTextarea1"
                                         rows="3"></textarea>
                                 </div>
-                                </div>
+                            </div>
                                 <div class="form-group">
                                     <label for="helpInputTop">Target Responden</label>
                                     <small class="text-muted"><i></i></small>
@@ -190,7 +190,7 @@
                                     <p><small class="text-muted"></small>
                                     </p>
                                 </div>
-                            </div>
+                            
                             
                         </div>
                     </div>
@@ -274,8 +274,9 @@
                     </div>
                 </div>
             </section>
-            </div>
-            <button type="button" class="btn btn-primary" onclick="addSection()">Tambah Pertanyaan</button>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="addSection()">Tambah Pertanyaan</button>
+            
             
 
 

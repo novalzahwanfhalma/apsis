@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('klien.sidebar.detail_survei')
+    @extends('klien.sidebar.verifikasi')
 @endsection
 @section('content')
     <div id="main">
@@ -135,48 +135,122 @@
             </section>
         </div> --}}
         {{-- message --}}
+
+        
+
         {!! Toastr::message() !!}
         <div class="page-content">
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Daftar Survei</h3>
-                        <p class="text-subtitle text-muted">Daftar Survei Anda</p>
+                        <h3>Pembayaran</h3>
+                        <p class="text-subtitle text-muted">Pembayaran Survei</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Survei</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Detail Survei</li>
+                                <li class="breadcrumb-item active" aria-current="page">Pembayaran</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
             </div>
-            <section id="content-types">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <h4 class="card-title">Nama Survei</h4>
-                                    <p class="card-text">
-                                        Deskripsi Survei
-                                        Survei adalah proses pengumpulan data atau informasi dari sekelompok 
-                                        responden dengan tujuan untuk mendapatkan pemahaman yang lebih baik 
-                                        tentang suatu topik atau masalah tertentu.
-                                    </p>
-                                    <div class="d-flex">
-                                        <a href="{{ route('detail_survei2') }}" class="btn btn-primary btn-sm ml-auto">Lihat Detail</a>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            
-                        </div>
+
+            {!! Toastr::message() !!}
+        <div class="page-content">
+            <section class="section">
+                <div class="card">
+                    <div class="card-header">
+                        Daftar Survei Anda
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped" id="table1">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Survei</th>
+                                    <th>Harga</th>
+                                    <th>Deskripsi</th>
+                                    <th>Bukti</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- <tr>
+                                    <td>1</td>
+                                    <td>Pergaulan Remaja</td>
+                                    <td>12</td>
+                                    <td>25</td>
+                                    <td>
+                                        <span class="badge bg-success">Diterima</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>E-Commerce Benefit</td>
+                                    <td>20</td>
+                                    <td>20</td>
+                                    <td>
+                                        <span class="badge bg-success">Diterima</span>
+                                    </td>
+                                </tr> --}}
+                                <tr>
+                                    <td>1</td>
+                                    <td>Perkuliahan Hybrid</td>
+                                    <td>180.000</td>
+                                    <td>10 pertanyaan x 10.000 <br> 8 hari x 80.000</td>
+                                    <td>
+                                        <a href="{{ route('pembayaran') }}"><i class="bi bi-upload"> </i>Upload Bukti</button>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-success">Disetujui</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Globalisasi</td>
+                                    <td>250.000</td>
+                                    <td>20 pertanyaan x 10.000 <br> 5 hari x 50.000 <br>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('pembayaran') }}"><i class="bi bi-upload"> </i>Upload Bukti</button>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-dark">Ditolak</span>
+                                    </td>
+                                </tr>
+                                {{-- <tr>
+                                    <td>5</td>
+                                    <td>Politik Menjelang Pemilu</td>
+                                    <td>10</td>
+                                    <td>50</td>
+                                    <td>
+                                        <span class="badge bg-dark">Ditolak</span>
+                                    </td>
+                                </tr> --}}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+
             </section>
+
+
+            {{-- <section class="row">
+                <div class="col-12 col-lg-9">
+                </div>
+                <div class="col-3 col-lg-3">
+                    
+                    {{-- user profile modal --}}
+                    
+                    {{-- end user profile modal --}}
+
+                {{-- </div> --}}
+            {{-- </section> --}}
+
+        </div>
+
 
         </div>
         <footer>

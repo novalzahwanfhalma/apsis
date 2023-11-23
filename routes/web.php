@@ -52,8 +52,12 @@ Route::get('/dashboard_klien', [App\Http\Controllers\KlienController::class, 'in
 Route::get('/dashboard_admin', [App\Http\Controllers\AdminController::class, 'index'])->name('home_admin');
 
 Route::get('/buatsurvei', [App\Http\Controllers\KlienController::class, 'create'])->name('buat_survei');
+Route::get('/detail_survei', [App\Http\Controllers\KlienController::class, 'detail_survei'])->name('detail_survei');
+Route::get('/detail_survei2', [App\Http\Controllers\KlienController::class, 'detail_survei2'])->name('detail_survei2');
+
 Route::get('/daftar_pembayaran', [App\Http\Controllers\KlienController::class, 'daftar_pembayaran'])->name('daftar_pembayaran');
 Route::get('/pembayaran', [App\Http\Controllers\KlienController::class, 'pembayaran'])->name('pembayaran');
+Route::get('/verifikasi', [App\Http\Controllers\KlienController::class, 'verifikasi'])->name('verifikasi');
 
 
 

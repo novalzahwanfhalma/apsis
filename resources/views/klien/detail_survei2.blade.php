@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('klien.sidebar.detail_survei')
+    @extends('klien.sidebar.buatsurvei')
 @endsection
 @section('content')
     <div id="main">
@@ -140,43 +140,150 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Daftar Survei</h3>
-                        <p class="text-subtitle text-muted">Daftar Survei Anda</p>
+                        <h3>Survei</h3>
+                        <p class="text-subtitle text-muted">Detail Survei Anda</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Survei</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('detail_survei') }}">Survei</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Detail Survei</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
             </div>
-            <section id="content-types">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <h4 class="card-title">Nama Survei</h4>
-                                    <p class="card-text">
-                                        Deskripsi Survei
-                                        Survei adalah proses pengumpulan data atau informasi dari sekelompok 
-                                        responden dengan tujuan untuk mendapatkan pemahaman yang lebih baik 
-                                        tentang suatu topik atau masalah tertentu.
+            <section class="section">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Judul dan Deskripsi</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="basicInput"><strong>Judul : </strong></label>
+                                    <p type="text">
+                                        Perkuliahan Hybrid
                                     </p>
-                                    <div class="d-flex">
-                                        <a href="{{ route('detail_survei2') }}" class="btn btn-primary btn-sm ml-auto">Lihat Detail</a>
-                                    </div>
                                 </div>
-                                
+                                <div class="form-group mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label"><strong>Deskripsi :</strong></label>
+                                    <p type="text">
+                                        Kuliah hybrid merupakan sebuah metode perkuliahan yang menggabungkan antara 
+                                        konsep kuliah secara daring atau online dengan pembelajaran tatap muka atau PTM. 
+                                        Dengan begitu, maka ada saatnya kuliah dilakukan secara jarak jauh atau PJJ 
+                                        dan ada juga saat di mana mahasiswa datang ke kelas dan belajar secara tatap muka
+                                    </p>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="helpInputTop"><strong>Target Responden : </strong></label>
+                                    <p type="text">
+                                        100
+                                    </p>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label for="helperText"><strong>Tanggal Mulai :</strong></label>
+                                    <p type="text">
+                                        22/11/2023
+                                    </p>
+                                    <p><small class="text-muted"></small>
+                                    </p>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="helperText"><strong>Tanggal Selesai : </strong></label>
+                                    <p type="text">
+                                        30/11/2023
+                                    </p>
+                                    <p><small class="text-muted"></small>
+                                    </p>
+                                </div>
                             </div>
                             
                         </div>
                     </div>
                 </div>
             </section>
+
+            <div id="sections-container">
+            <section class="section">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1" class="form-label"><strong>Pertanyaan</strong></label>
+                                    <p type="text">
+                                        Bagaimana perkuliahan hybrid menurut anda?
+                                    </p>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Sangat Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled"  disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled"  disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Cukup Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled"  disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Tidak Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled"  disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Sangat Tidak Baik
+                                    </label>
+                                </div>
+                                    {{-- <div class="row">
+                                        <div class="col-md-1">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <input type="text" class="form-control" id="basicInput" placeholder="Opsi 1">
+                                        </div>
+                                    </div> --}}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+
+            {{-- <section class="row">
+                <div class="col-12 col-lg-9">
+                </div>
+                <div class="col-3 col-lg-3">
+                    
+                    {{-- user profile modal --}}
+                    
+                    {{-- end user profile modal --}}
+
+                {{-- </div> --}}
+            {{-- </section> --}}
 
         </div>
         <footer>

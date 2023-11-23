@@ -201,7 +201,7 @@
                                     <td>180.000</td>
                                     <td>10 pertanyaan x 10.000 <br> 8 hari x 80.000</td>
                                     <td>
-                                        <a href="{{ route('pembayaran') }}"><i class="bi bi-upload"> </i>Upload Bukti</button>
+                                        <a href="{{ route('pembayaran') }}"><i class="bi bi-wallet2"> </i>Bayar</button>
                                     </td>
                                     <td>
                                         <span class="badge bg-danger">Belum Bayar</span>
@@ -214,7 +214,7 @@
                                     <td>20 pertanyaan x 10.000 <br> 5 hari x 50.000 <br>
                                     </td>
                                     <td>
-                                        <a href="{{ route('pembayaran') }}"><i class="bi bi-upload"> </i>Upload Bukti</button>
+                                        <a href="{{ route('pembayaran') }}"><i class="bi bi-wallet2"> </i>Bayar</button>
                                     </td>
                                     <td>
                                         <span class="badge bg-warning">Menunggu Verifikasi</span>

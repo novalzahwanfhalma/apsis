@@ -26,71 +26,44 @@
                                     <th>Jumlah Pertanyaan</th>
                                     <th>Jumlah Poin</th>
                                     <th>Target Responden</th>
-                                    <th>Target hari</th>
+                                    <th>Target Hari</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Pergaulan Remaja</td>
+                                    <td>Gerakan batam merdeka</td>
                                     <td>12</td>
                                     <td>25</td>
                                     <td>25</td>
                                     <td>25</td>
                                     <td>
-                                        <a href="{{ route('detail_survei_sortir') }}">
+                                        <a href="#">
+                                            <span class="badge btn-danger" style="btn-danger">dibatalkan</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('detail_dibatalkan') }}">
                                             <span class="badge" style="background-color: #D99004;">Detail</span>
                                         </a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>E-Commerce Benefit</td>
-                                    <td>20</td>
-                                    <td>20</td>
+                                    <td>Pengguna laptov lenovo</td>
+                                    <td>12</td>
+                                    <td>25</td>
                                     <td>25</td>
                                     <td>25</td>
                                     <td>
-                                        <a href="{{ route('detail_survei_sortir') }}">
-                                            <span class="badge" style="background-color: #D99004;">Detail</span>
+                                        <a href="#">
+                                            <span class="badge btn-danger" style="btn-danger">dibatalkan</span>
                                         </a>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Perkuliahan Hybrid</td>
-                                    <td>15</td>
-                                    <td>25</td>
-                                    <td>25</td>
-                                    <td>25</td>
                                     <td>
-                                        <a href="{{ route('detail_survei_sortir') }}">
-                                            <span class="badge" style="background-color: #D99004;">Detail</span>
-                                        </a>
-                                    </td>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Globalisasi</td>
-                                    <td>14</td>
-                                    <td>25</td>
-                                    <td>25</td>
-                                    <td>25</td>
-                                    <td>
-                                        <a href="{{ route('detail_survei_sortir') }}">
-                                            <span class="badge" style="background-color: #D99004;">Detail</span>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Politik Menjelang Pemilu politeknik negeri batam</td>
-                                    <td>10</td>
-                                    <td>50</td>
-                                    <td>25</td>
-                                    <td>25</td>
-                                    <td>
-                                        <a href="{{ route('detail_survei_sortir') }}">
+                                        <a href="{{ route('detail_dibatalkan') }}">
                                             <span class="badge" style="background-color: #D99004;">Detail</span>
                                         </a>
                                     </td>

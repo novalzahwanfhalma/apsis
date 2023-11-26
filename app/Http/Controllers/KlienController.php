@@ -30,6 +30,17 @@ class KlienController extends Controller
         return view('klien.buatsurvei');
     }
 
+
+    public function detail_survei()
+    {
+        return view('klien.detail_survei');
+    }
+
+    public function detail_survei2()
+    {
+        return view('klien.detail_survei2');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -50,6 +61,11 @@ class KlienController extends Controller
     public function daftar_pembayaran()
     {
         return view('klien.daftar_pembayaran');
+    }
+
+    public function verifikasi()
+    {
+        return view('klien.verifikasi');
     }
 
 

@@ -186,14 +186,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="metodePembayaran">Metode Pembayaran</label>
-                                    <select class="form-select" id="metodePembayaran">
-                                        <option selected>Pilih Metode Pembayaran Anda</option>
-                                        <option value="dana">DANA</option>
-                                        <option value="ovo">OVO</option>
-                                        <option value="shopeepay">Shopeepay</option>
-                                        <option value="bank">Transfer Bank</option>
-
-                                    </select>
+                                    <img src="">
                                 </div>
                                 
                                 {{-- <div class="form-group mb-3">

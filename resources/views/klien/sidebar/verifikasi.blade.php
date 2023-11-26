@@ -19,7 +19,7 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item has-sub active">
+                <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-file-text-fill"></i>
                         <span>Survei</span>
@@ -44,7 +44,7 @@
                         <span>Pembayaran</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item active">
                     <a href="{{ route('verifikasi') }}" class='sidebar-link'>
                         <i class="bi bi-patch-check-fill"></i>
                         <span>Verifikasi</span>
@@ -59,7 +59,7 @@
                             <hr>
                             <span>Sebagai:</span>
                             <span class="badge bg-success">Klien</span>
-
+                            
                         </div>
                     </div>
                 </li>
@@ -71,7 +71,7 @@
                     </a>
                 </li>
 
-                    <li class="sidebar-item  has-sub visually-hidden">
+                    <li class="sidebar-item  has-sub visually-hidden"> 
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
                             <span>Halaman Pengguna</span>

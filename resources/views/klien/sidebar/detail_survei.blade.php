@@ -59,7 +59,7 @@
                             <hr>
                             <span>Sebagai:</span>
                             <span class="badge bg-success">Klien</span>
-
+                            
                         </div>
                     </div>
                 </li>
@@ -71,7 +71,7 @@
                     </a>
                 </li>
 
-                    <li class="sidebar-item  has-sub visually-hidden">
+                    <li class="sidebar-item  has-sub visually-hidden"> 
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
                             <span>Halaman Pengguna</span>

@@ -189,8 +189,8 @@
     background-color: #fff;
 }
 .btn.btn-light-primary {
-    background-color: #ebf3ff;
-    color: #002152;
+    background-color: #f9c25d;
+    color: #fff;
 }
 .btn.btn-light-secondary {
     background-color: #e6eaee;
@@ -637,8 +637,8 @@
     font-size: 1rem;
 }
 .form-check.form-check-primary .form-check-input {
-    background-color: #435ebe;
-    border-color: #435ebe;
+    background-color: #d99004;
+    border-color: #d99004;
 }
 .form-check.form-check-secondary .form-check-input {
     background-color: #6c757d;
@@ -1027,7 +1027,7 @@
     overflow: visible;
 }
 .progress.progress-primary .progress-bar {
-    background-color: #435ebe;
+    background-color: #d99004;
     border-radius: 0.25rem;
 }
 .progress.progress-secondary {

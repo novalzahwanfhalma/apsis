@@ -30,17 +30,25 @@
                                 <i class="bi bi-plus-circle-fill"></i> Buat Survei
                             </a>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="{{ route('daftar_pembayaran') }}">
-                                <i class="bi bi-upload"></i> Pembayaran
-                            </a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="#">
-                                <i class="bi bi-card-checklist"></i> Detail Survei
+                            <a href="{{ route('detail_survei') }}">
+                                <i class="bi bi-menu-button-wide-fill"></i> Detail Survei
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('daftar_pembayaran') }}" class='sidebar-link'>
+                        <i class="bi bi-credit-card-fill"></i>
+                        <span>Pembayaran</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('verifikasi') }}" class='sidebar-link'>
+                        <i class="bi bi-patch-check-fill"></i>
+                        <span>Verifikasi</span>
+                    </a>
                 </li>
                 <li class="sidebar-item">
                     <div class="card-body">

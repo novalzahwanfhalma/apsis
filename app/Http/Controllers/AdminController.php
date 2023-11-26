@@ -92,4 +92,44 @@ class AdminController extends Controller
     {
         return view('admin.sortir_admin');
     }
+
+    public function detail_survei_sortir()
+    {
+        return view('admin.detail_survei_sortir');
+    }
+
+    public function detail_survei_home()
+    {
+        return view('admin.detail_survei_home');
+    }
+
+    public function sudah_bayar()
+    {
+        return view('admin.sudah_bayar');
+    }
+
+    public function detail_sudah_bayar()
+    {
+        return view('admin.detail_sudah_bayar');
+    }
+
+    public function disetujui()
+    {
+        return view('admin.disetujui');
+    }
+
+    public function detail_disetujui()
+    {
+        return view('admin.detail_disetujui');
+    }
+
+    public function dibatalkan()
+    {
+        return view('admin.dibatalkan');
+    }
+
+    public function detail_dibatalkan()
+    {
+        return view('admin.detail_dibatalkan');
+    }
 }

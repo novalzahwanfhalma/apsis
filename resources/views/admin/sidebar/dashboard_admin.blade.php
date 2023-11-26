@@ -19,12 +19,6 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-shield-lock"></i>
-                        <span>Pengguna</span>
-                    </a>
-                </li>
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-file-text-fill"></i>
@@ -33,27 +27,22 @@
                     <ul class="submenu">
                         <li class="submenu-item">
                             <a href="{{ route('sortir_admin') }}">
-                                <i class="bi bi-plus-circle-fill"></i> Sortir
+                                <i class="bi bi-sort-down"></i>Sortir
                             </a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ route('daftar_pembayaran') }}">
-                                <i class="bi bi-upload"></i> Belum Bayar
+                            <a href="{{ route('sudah_bayar') }}">
+                                <i class="bi bi-wallet2"></i> Validasi Bayar
                             </a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="#">
-                                <i class="bi bi-card-checklist"></i> Sudah Bayar
-                            </a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="#">
+                            <a href="{{ route('disetujui') }}">
                                 <i class="bi bi-card-checklist"></i> Disetujui
                             </a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="#">
-                                <i class="bi bi-card-checklist"></i> Dibatalkan
+                            <a href="{{ route('dibatalkan') }}">
+                                <i class="bi bi-trash"></i> Dibatalkan
                             </a>
                         </li>
                     </ul>

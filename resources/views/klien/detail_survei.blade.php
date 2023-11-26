@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('klien.sidebar.pembayaran')
+    @extends('klien.sidebar.detail_survei')
 @endsection
 @section('content')
     <div id="main">
@@ -140,56 +140,43 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Pembayaran</h3>
-                        <p class="text-subtitle text-muted">Pembayaran Survei</p>
+                        <h3>Daftar Survei</h3>
+                        <p class="text-subtitle text-muted">Daftar Survei Anda</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Survei</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Pembayaran</li>
+                                <li class="breadcrumb-item active" aria-current="page">Detail Survei</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
             </div>
-            <section class="section">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Bukti Pembayaran</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Unggah Bukti Pembayaran Anda</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                                <div class="form-group">
-                                    <label for="metodePembayaran">Metode Pembayaran</label>
-                                    <select class="form-select" id="metodePembayaran">
-                                        <option selected>Pilih Metode Pembayaran Anda</option>
-                                        <option value="dana">DANA</option>
-                                        <option value="ovo">OVO</option>
-                                        <option value="shopeepay">Shopeepay</option>
-                                    </select>
+            <section id="content-types">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <h4 class="card-title">Nama Survei</h4>
+                                    <p class="card-text">
+                                        Deskripsi Survei
+                                        Survei adalah proses pengumpulan data atau informasi dari sekelompok 
+                                        responden dengan tujuan untuk mendapatkan pemahaman yang lebih baik 
+                                        tentang suatu topik atau masalah tertentu.
+                                    </p>
+                                    <div class="d-flex">
+                                        <a href="{{ route('detail_survei2') }}" class="btn btn-primary btn-sm ml-auto">Lihat Detail</a>
+                                    </div>
                                 </div>
                                 
-                                <div class="form-group mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                        rows="3"></textarea>
-                                </div>
                             </div>
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary mx-auto d-block">Kirim Bukti Pembayaran</button>
-                            </div>
+                            
                         </div>
                     </div>
-                    
                 </div>
             </section>
-            
 
         </div>
         <footer>

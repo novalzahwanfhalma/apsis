@@ -16,21 +16,23 @@ class CreateSurveiTable extends Migration
         Schema::create('survei', function (Blueprint $table) {
             $table->increments('id_survei');
             $table->unsignedInteger('id_klien');
-            $table->unsignedInteger('id_admin');
-            $table->unsignedInteger('jumlah_responden');
-            $table->unsignedInteger('poin');
-            $table->string('bukti')->unique();
-            $table->string('nominal');
-            $table->string('judul', 256);
-            $table->text('deskripsi');
-            $table->date('tgl_mulai');
-            $table->date('tgl_selesai');
-            $table->enum('status_bayar', ['Belum Bayar', 'Sudah Bayar']);
-            $table->enum('status_survei', ['Sortir', 'DIsetujui', 'Dibatalkan']);
+            // $table->unsignedInteger('id_admin');
+            $table->unsignedInteger('jumlah_responden')->nullable();
+            $table->unsignedInteger('poin')->nullable();
+            $table->string('bukti')->nullable();
+            $table->string('nominal')->nullable();
+            $table->string('judul', 256)->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->text('deskripsi_bayar')->nullable();
+            $table->date('tgl_mulai')->nullable();
+            $table->date('tgl_selesai')->nullable();
+            $table->enum('status', ['Sortir','Belum Bayar','Sudah Bayar','Disetujui','Dibatalkan'])->nullable();
+            // $table->enum('status_bayar', ['Belum Bayar', 'Sudah Bayar'])->nullable();
+            // $table->enum('status_survei', ['Sortir', 'DIsetujui', 'Dibatalkan'])->nullable();
             $table->timestamps();
 
             $table->foreign('id_klien')->references('id_klien')->on('klien')->onDelete('cascade');
-            $table->foreign('id_admin')->references('id_admin')->on('admin')->onDelete('cascade');
+            // $table->foreign('id_admin')->references('id_admin')->on('admin')->onDelete('cascade');
         });
     }
 
@@ -41,6 +43,8 @@ class CreateSurveiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('survei');
+    //     Schema::create('survei', function (Blueprint $table) {
+    //         $table->dropColumn('id_admin');
+    //     });
     }
 }

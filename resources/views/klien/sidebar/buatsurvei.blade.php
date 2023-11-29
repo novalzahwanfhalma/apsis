@@ -25,7 +25,7 @@
                         <span>Survei</span>
                     </a>
                     <ul class="submenu">
-                        <li class="submenu-item">
+                        <li class="submenu-item active">
                             <a href="{{ route('buat_survei') }}">
                                 <i class="bi bi-plus-circle-fill"></i> Buat Survei
                             </a>

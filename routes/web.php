@@ -9,6 +9,7 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\LockScreen;
+use App\Http\Controllers\SurveiController;
 
 
 /*
@@ -51,13 +52,17 @@ Route::post('reset-password', [App\Http\Controllers\Auth\ResetPasswordController
 Route::get('/dashboard_klien', [App\Http\Controllers\KlienController::class, 'index'])->name('home_klien');
 Route::get('/dashboard_admin', [App\Http\Controllers\AdminController::class, 'index'])->name('home_admin');
 
-Route::get('/buatsurvei', [App\Http\Controllers\KlienController::class, 'create'])->name('buat_survei');
-Route::get('/detail_survei', [App\Http\Controllers\KlienController::class, 'detail_survei'])->name('detail_survei');
-Route::get('/detail_survei2', [App\Http\Controllers\KlienController::class, 'detail_survei2'])->name('detail_survei2');
+Route::get('/buatsurvei', [App\Http\Controllers\SurveiController::class, 'create'])->name('buat_survei');
+Route::post('/simpansurvei', [App\Http\Controllers\SurveiController::class, 'store']);
 
-Route::get('/daftar_pembayaran', [App\Http\Controllers\KlienController::class, 'daftar_pembayaran'])->name('daftar_pembayaran');
+Route::get('/detail_survei', [App\Http\Controllers\SurveiController::class, 'index'])->name('detail_survei');
+Route::get('/detail_survei/{id_survei}', [App\Http\Controllers\SurveiController::class, 'show'])->name('detail_survei2');
+
+Route::get('/daftar_pembayaran', [App\Http\Controllers\SurveiController::class, 'index_pembayaran'])->name('daftar_pembayaran');
 Route::get('/pembayaran', [App\Http\Controllers\KlienController::class, 'pembayaran'])->name('pembayaran');
-Route::get('/verifikasi', [App\Http\Controllers\KlienController::class, 'verifikasi'])->name('verifikasi');
+Route::post('/simpan_pembayaran', [App\Http\Controllers\SurveiController::class, 'store_pembayaran'])->name('simpan_pembayaran');
+
+Route::get('/verifikasi', [App\Http\Controllers\SurveiController::class, 'index_verifikasi'])->name('verifikasi');
 
 
 

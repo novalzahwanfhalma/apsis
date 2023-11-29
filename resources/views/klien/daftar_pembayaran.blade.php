@@ -171,12 +171,14 @@
                                     <th>No</th>
                                     <th>Nama Survei</th>
                                     <th>Harga</th>
-                                    <th>Deskripsi</th>
+                                    <th style="max-width: 160px;">Rincian</th>
                                     <th>Bukti</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ( $kliensurvei as $key => $survei)
+                                @if ($survei->status == 'Belum Bayar')
                                 {{-- <tr>
                                     <td>1</td>
                                     <td>Pergaulan Remaja</td>
@@ -185,21 +187,12 @@
                                     <td>
                                         <span class="badge bg-success">Diterima</span>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>E-Commerce Benefit</td>
-                                    <td>20</td>
-                                    <td>20</td>
-                                    <td>
-                                        <span class="badge bg-success">Diterima</span>
-                                    </td>
                                 </tr> --}}
                                 <tr>
-                                    <td>1</td>
-                                    <td>Perkuliahan Hybrid</td>
-                                    <td>180.000</td>
-                                    <td>10 pertanyaan x 10.000 <br> 8 hari x 80.000</td>
+                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ $survei->judul }}</td>
+                                    <td>{{ $survei->nominal }}</td>
+                                    <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">{{ $survei->deskripsi_bayar }}</td>
                                     <td>
                                         <a href="{{ route('pembayaran') }}"><i class="bi bi-wallet2"> </i>Bayar</button>
                                     </td>
@@ -207,28 +200,8 @@
                                         <span class="badge bg-danger">Belum Bayar</span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Globalisasi</td>
-                                    <td>250.000</td>
-                                    <td>20 pertanyaan x 10.000 <br> 5 hari x 50.000 <br>
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('pembayaran') }}"><i class="bi bi-wallet2"> </i>Bayar</button>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-warning">Menunggu Verifikasi</span>
-                                    </td>
-                                </tr>
-                                {{-- <tr>
-                                    <td>5</td>
-                                    <td>Politik Menjelang Pemilu</td>
-                                    <td>10</td>
-                                    <td>50</td>
-                                    <td>
-                                        <span class="badge bg-dark">Ditolak</span>
-                                    </td>
-                                </tr> --}}
+                                @endif
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

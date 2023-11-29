@@ -31,7 +31,7 @@
                             </a>
                         </li>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item active">
                             <a href="{{ route('detail_survei') }}">
                                 <i class="bi bi-menu-button-wide-fill"></i> Detail Survei
                             </a>

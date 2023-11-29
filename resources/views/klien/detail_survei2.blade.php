@@ -164,30 +164,90 @@
                                 <div class="form-group">
                                     <label for="basicInput"><strong>Judul : </strong></label>
                                     <p type="text">
-                                        Perkuliahan Hybrid
+                                        {{ $survei->judul }}
                                     </p>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="exampleFormControlTextarea1" class="form-label"><strong>Deskripsi :</strong></label>
                                     <p type="text">
-                                        Kuliah hybrid merupakan sebuah metode perkuliahan yang menggabungkan antara 
-                                        konsep kuliah secara daring atau online dengan pembelajaran tatap muka atau PTM. 
-                                        Dengan begitu, maka ada saatnya kuliah dilakukan secara jarak jauh atau PJJ 
-                                        dan ada juga saat di mana mahasiswa datang ke kelas dan belajar secara tatap muka
+                                        {{ $survei->deskripsi }}
                                     </p>
                                 </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-6">
                                     <label for="helpInputTop"><strong>Target Responden : </strong></label>
                                     <p type="text">
-                                        100
+                                        {{ $survei->jumlah_responden }}
+                                    </p>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="helperText"><strong>Status : </strong></label>
+                                    <p type="text">
+                                        {{ $survei->status }}
+                                    </p>
+                                    
+                                    @php
+                                        $status = $survei->status;
+                                        $badgeColor = '';
+
+                                        switch ($status) {
+                                            case 'Sortir':
+                                                $badgeColor = 'badge-warning';
+                                                break;
+                                            case 'Belum Bayar':
+                                                $badgeColor = 'bg-danger';
+                                                break;
+                                            case 'Sudah Bayar':
+                                                $badgeColor = 'bg-info';
+                                                break;
+                                            case 'Diterima':
+                                                $badgeColor = 'bg-success';
+                                                break;
+                                            case 'Ditolak':
+                                                $badgeColor = 'badge-dark';
+                                                break;
+                                            // Add more cases as needed
+                                            default:
+                                                $badgeColor = 'bg-secondary';
+                                        }
+                                    @endphp
+
+                                        <span class="badge {{ $badgeColor }}">{{ $status }}</span>
+
+                                    {{-- @php
+                                    $status = trim($survei->status);
+                                    $badgeColor = '';
+                                    switch ($status) {
+                                        case 'Sortir':
+                                            $badgeColor = 'badge-warning';
+                                            break;
+                                        case 'Belum Bayar':
+                                            $badgeColor = 'badge-danger';
+                                            break;
+                                        case 'Sudah Bayar':
+                                            $badgeColor = 'badge-info';
+                                            break;
+                                        case 'Diterima':
+                                            $badgeColor = 'badge-success';
+                                            break;
+                                        case 'Ditolak':
+                                            $badgeColor = 'badge-dark';
+                                            break;
+                                        default:
+                                            $badgeColor = 'badge-secondary';
+                                    }
+                                    @endphp
+                                    <p type="text">
+                                        <span class="badge {{ $badgeColor }}">{{ $status }}</span>
+                                    </p> --}}
+                                    <p><small class="text-muted"></small>
                                     </p>
                                 </div>
 
                                 <div class="form-group col-6">
                                     <label for="helperText"><strong>Tanggal Mulai :</strong></label>
                                     <p type="text">
-                                        22/11/2023
+                                        {{ $survei->tgl_mulai }}
                                     </p>
                                     <p><small class="text-muted"></small>
                                     </p>
@@ -195,7 +255,7 @@
                                 <div class="form-group col-6">
                                     <label for="helperText"><strong>Tanggal Selesai : </strong></label>
                                     <p type="text">
-                                        30/11/2023
+                                        {{ $survei->tgl_selesai }}
                                     </p>
                                     <p><small class="text-muted"></small>
                                     </p>
@@ -209,6 +269,7 @@
 
             <div id="sections-container">
             <section class="section">
+                @foreach ($pertanyaan as $pertanyaan)
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -216,42 +277,42 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1" class="form-label"><strong>Pertanyaan</strong></label>
                                     <p type="text">
-                                        Bagaimana perkuliahan hybrid menurut anda?
+                                        {{ $pertanyaan->pertanyaan }}
                                     </p>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                         id="flexRadioDisabled" disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        Sangat Baik
+                                        {{ $pertanyaan->opsi_1 }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                         id="flexRadioDisabled"  disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        Baik
+                                        {{ $pertanyaan->opsi_2 }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                         id="flexRadioDisabled"  disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        Cukup Baik
+                                        {{ $pertanyaan->opsi_3 }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                         id="flexRadioDisabled"  disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        Tidak Baik
+                                        {{ $pertanyaan->opsi_4 }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                         id="flexRadioDisabled"  disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        Sangat Tidak Baik
+                                        {{ $pertanyaan->opsi_5 }}
                                     </label>
                                 </div>
                                     {{-- <div class="row">
@@ -264,11 +325,12 @@
                                             <input type="text" class="form-control" id="basicInput" placeholder="Opsi 1">
                                         </div>
                                     </div> --}}
-                            </div>
                             
+                            </div>               
                         </div>
                     </div>
                 </div>
+                @endforeach
             </section>
             
 

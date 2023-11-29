@@ -149,7 +149,7 @@
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Survei</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('home_klien') }}">Dashboard</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Pembayaran</li>
                             </ol>
                         </nav>
@@ -171,7 +171,8 @@
 
         </div>
 
-
+        <form action="{{ route('simpan_pembayaran') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <section class="section">
                 <div class="card">
                     <div class="card-header">
@@ -182,11 +183,13 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Unggah Bukti Pembayaran Anda</label>
-                                    <input class="form-control" type="file" id="formFile">
+                                    <input class="form-control" type="file" id="formFile" name="bukti">
                                 </div>
                                 <div class="form-group">
-                                    <label for="metodePembayaran">Metode Pembayaran</label>
-                                    <img src="">
+                                    <label for="metodePembayaran">Pembayaran</label>
+                                    <div style="text-align: center; padding: 20px;">
+                                    <img src="{{ asset('images/scanqrr.jpeg')}}" alt="photo" width="300" height="300" style="display: inline-block; vertical-align: middle;">
+                                    </div>
                                 </div>
                                 
                                 {{-- <div class="form-group mb-3">
@@ -195,14 +198,16 @@
                                         rows="3"></textarea>
                                 </div> --}}
                             </div>
+                            <br>
+                            <br>
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary mx-auto d-block">Kirim Bukti Pembayaran</button>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </section>
+        </form>
             
 
         </div>

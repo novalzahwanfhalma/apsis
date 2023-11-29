@@ -136,6 +136,9 @@
         </div> --}}
         {{-- message --}}
         {!! Toastr::message() !!}
+        {{-- START FORM --}}
+        <form action="/simpansurvei" method="post">
+            @csrf
         <div class="page-content">
             <div class="page-title">
                 <div class="row">
@@ -158,35 +161,37 @@
                     <div class="card-header">
                         <h4 class="card-title">Judul dan Deskripsi</h4>
                     </div>
+                    
                     <div class="card-body">
+                        <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="basicInput">Judul</label>
-                                    <input type="text" class="form-control" id="basicInput"
-                                        placeholder="Masukkan Judul Survei Anda">
+                                    <label for="judul">Judul</label>
+                                    <input type="text" name="judul" class="form-control" id="basicInput"
+                                        placeholder="Masukkan Judul Survei Anda" required>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                        rows="3"></textarea>
+                                    <label for="judul" class="form-label">Deskripsi</label>
+                                    <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1"
+                                        rows="3" required></textarea>
                                 </div>
                             </div>
                                 <div class="form-group">
-                                    <label for="helpInputTop">Target Responden</label>
+                                    <label for="jumlah_responden">Target Responden</label>
                                     <small class="text-muted"><i></i></small>
-                                    <input type="number" class="form-control" id="helpInputTop">
+                                    <input type="number" name="jumlah_responden" class="form-control" id="helpInputTop0" required>
                                 </div>
 
                                 <div class="form-group col-6">
-                                    <label for="helperText">Tanggal Mulai</label>
-                                    <input type="date" id="helperText" class="form-control" placeholder="dd-mm-yyyy">
+                                    <label for="tgl_mulai">Tanggal Mulai</label>
+                                    <input type="date" name="tgl_mulai" id="helperText" class="form-control" placeholder="dd-mm-yyyy" required>
                                     <p><small class="text-muted"></small>
                                     </p>
                                 </div>
                                 <div class="form-group col-6">
-                                    <label for="helperText">Tanggal Selesai</label>
-                                    <input type="date" id="helperText" class="form-control" placeholder="dd-mm-yyyy">
+                                    <label for="tgl_selesai">Tanggal Selesai</label>
+                                    <input type="date" name="tgl_selesai" id="helperText" class="form-control" placeholder="dd-mm-yyyy" required>
                                     <p><small class="text-muted"></small>
                                     </p>
                                 </div>
@@ -204,9 +209,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Pertanyaan</label>
+                                    <label for="pertanyaan" class="form-label">Pertanyaan</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1"
-                                        rows="3"></textarea>
+                                        rows="3" name="tanya" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group"> 
@@ -215,7 +220,7 @@
                                                 <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 1" required> 
+                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 1" name="opsi_1" required> 
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -225,7 +230,7 @@
                                                 <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 2" required>
+                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 2" name="opsi_2" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -235,7 +240,7 @@
                                                 <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 3">
+                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 3" name="opsi_3">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -245,7 +250,7 @@
                                                 <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 4">
+                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 4" name="opsi_4">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -255,19 +260,9 @@
                                                 <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 5">
+                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 5" name="opsi_5">
                                     </div>
                                 </div>
-                                    {{-- <div class="row">
-                                        <div class="col-md-1">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-11">
-                                            <input type="text" class="form-control" id="basicInput" placeholder="Opsi 1">
-                                        </div>
-                                    </div> --}}
                             </div>
                             
                         </div>
@@ -276,27 +271,13 @@
             </section>
         </div>
         <button type="button" class="btn btn-primary" onclick="addSection()">Tambah Pertanyaan</button>
-            
-            
-
-
-            {{-- <section class="row">
-                <div class="col-12 col-lg-9">
-                </div>
-                <div class="col-3 col-lg-3">
-                    
-                    {{-- user profile modal --}}
-                    
-                    {{-- end user profile modal --}}
-
-                {{-- </div> --}}
-            {{-- </section> --}}
-
         </div>
 
+        <input type="hidden" name="pertanyaanArray" id="pertanyaanArrayInput" value="">
         <div class="col-md-12 text-center">
-            <button type="submit" class="btn btn-primary mx-auto d-block">Kirim Survei</button>
+            <button type="button" class="btn btn-primary mx-auto d-block" onclick="submitForm()">Kirim Survei</button>
         </div>
+        
 
         <footer>
             <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
@@ -309,30 +290,82 @@
 
     <script>
         var sectionCounter = 1;
+        var pertanyaanArray = [];
     
         function addSection() {
             // Clone the first section
             var newSection = $("#sections-container .section:first").clone();
-    
+
+            // Clear input values and textarea content in the cloned section
+            newSection.find("input, textarea").val('');
+            newSection.find("input[type=radio]").prop('checked', false);
+
             // Increment IDs and names to avoid duplicates
             newSection.find("*").each(function () {
                 var currentId = $(this).attr("id");
                 var currentName = $(this).attr("name");
-    
+
                 if (currentId) {
                     $(this).attr("id", currentId + sectionCounter);
                 }
-    
+
                 if (currentName) {
                     $(this).attr("name", currentName + sectionCounter);
                 }
             });
-    
+
             // Increment the section counter
             sectionCounter++;
-    
+
             // Append the new section to the container
             $("#sections-container").append(newSection);
+
+            // Collect data from the new section
+            var sectionData = {
+                pertanyaan: newSection.find("textarea[name^='pertanyaan']").val(),
+                opsi_1: newSection.find("input[name^='opsi_1']").val(),
+                opsi_2: newSection.find("input[name^='opsi_2']").val(),
+                opsi_3: newSection.find("input[name^='opsi_3']").val(),
+                opsi_4: newSection.find("input[name^='opsi_4']").val(),
+                opsi_5: newSection.find("input[name^='opsi_5']").val(),
+            };
+
+            // Add the collected data to an array
+            pertanyaanArray.push(sectionData);
         }
+
+        
+        function submitForm() {
+        // Loop through each section and submit the data
+        var formData = {
+            id_klien: $("input[name='id_klien']").val(),
+            judul: $("input[name='judul']").val(),
+            deskripsi: $("textarea[name='deskripsi']").val(),
+            jumlah_responden: $("input[name='jumlah_responden']").val(),
+            tgl_mulai: $("input[name='tgl_mulai']").val(),
+            tgl_selesai: $("input[name='tgl_selesai']").val(),
+            pertanyaan: pertanyaanData,
+        };
+
+        // Convert the data to JSON
+        var jsonData = JSON.stringify(formData);
+
+        $.ajax({
+            type: "POST",
+            url: "/simpansurvei",
+            data: { data: jsonData, _token: '{{ csrf_token() }}' }, 
+            success: function (response) {
+                console.log(response);
+                // Handle success, redirect, or show a success message
+            },
+            error: function (error) {
+                console.log(error);
+                // Handle error or show an error message
+            }
+        });
+        
+    }
     </script>
+    </form>
+    {{-- END FORM --}}
 @endsection

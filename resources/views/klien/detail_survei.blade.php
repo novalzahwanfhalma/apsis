@@ -155,19 +155,17 @@
             </div>
             <section id="content-types">
                 <div class="row">
+                    @foreach ($kliensurvei as $survei)
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-                                    <h4 class="card-title">Nama Survei</h4>
+                                    <h4 class="card-title">{{ $survei->judul }}</h4>
                                     <p class="card-text">
-                                        Deskripsi Survei
-                                        Survei adalah proses pengumpulan data atau informasi dari sekelompok 
-                                        responden dengan tujuan untuk mendapatkan pemahaman yang lebih baik 
-                                        tentang suatu topik atau masalah tertentu.
+                                        {{ $survei->deskripsi }}
                                     </p>
                                     <div class="d-flex">
-                                        <a href="{{ route('detail_survei2') }}" class="btn btn-primary btn-sm ml-auto">Lihat Detail</a>
+                                        <a href="{{ route('detail_survei2', $survei->id_survei) }}" class="btn btn-primary btn-sm ml-auto">Lihat Detail</a>
                                     </div>
                                 </div>
                                 
@@ -175,6 +173,7 @@
                             
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </section>
 

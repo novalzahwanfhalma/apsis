@@ -27,13 +27,7 @@ class KlienController extends Controller
      */
     public function create()
     {
-        return view('klien.buatsurvei');
-    }
-
-
-    public function detail_survei()
-    {
-        return view('klien.detail_survei');
+        
     }
 
     public function detail_survei2()

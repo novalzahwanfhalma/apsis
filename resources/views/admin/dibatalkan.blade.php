@@ -50,24 +50,6 @@
                                         </a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Pengguna laptov lenovo</td>
-                                    <td>12</td>
-                                    <td>25</td>
-                                    <td>25</td>
-                                    <td>25</td>
-                                    <td>
-                                        <a href="#">
-                                            <span class="badge btn-danger" style="btn-danger">dibatalkan</span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('detail_dibatalkan') }}">
-                                            <span class="badge" style="background-color: #D99004;">Detail</span>
-                                        </a>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>

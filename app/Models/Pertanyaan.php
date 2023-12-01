@@ -13,7 +13,7 @@ class Pertanyaan extends Model
     protected $primaryKey = 'id_pertanyaan';
 
 
-    protected $fllable = array(
+    protected $fillable = array(
         'id_pertanyaan', 'id_survei', 'pertanyaan', 'opsi_1', 'opsi_2', 'opsi_3', 'opsi_4', 'opsi_5',
     );
 

@@ -149,7 +149,7 @@
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('home_klien') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('daftar_pembayaran') }}">Daftar Pembayaran</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Pembayaran</li>
                             </ol>
                         </nav>
@@ -171,13 +171,15 @@
 
         </div>
 
-        <form action="{{ route('simpan_pembayaran') }}" method="POST" enctype="multipart/form-data">
-            @csrf
+        
             <section class="section">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Bukti Pembayaran</h4>
                     </div>
+                    <form action="{{ route('simpan_pembayaran') }}" method="POST" enctype="multipart/form-data" id="buktiForm">
+                        @csrf
+                        <input type="hidden" name="id_survei" value="{{ $survei->id_survei }}">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
@@ -201,14 +203,24 @@
                             <br>
                             <br>
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary mx-auto d-block">Kirim Bukti Pembayaran</button>
+                                <button type="button" class="btn btn-primary mx-auto d-block" onclick="confirmSubmission()">Kirim Bukti Pembayaran</button>
                             </div>
                         </div>
                     </div>
+                </form>
                 </div>
             </section>
-        </form>
-            
+            <script>
+                function confirmSubmission() {
+                    if (window.confirm("Apakah Anda yakin ingin mengirim bukti pembayaran?")) {
+                        // If the user clicks "OK", submit the form
+                        document.getElementById('buktiForm').submit();
+                        alert("Bukti pembayaran telah berhasil disimpan.");
+                    } else {
+                        alert("Pengiriman bukti pembayaran dibatalkan.");
+                    }
+                }
+            </script>
 
         </div>
         <footer>

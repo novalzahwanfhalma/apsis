@@ -19,22 +19,44 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-shield-lock"></i>
-                        <span>Pengguna</span>
+                        <i class="bi bi-file-text-fill"></i>
+                        <span>Survei</span>
                     </a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                            <a href="{{ route('sortir_admin') }}">
+                                <i class="bi bi-sort-down"></i>Sortir
+                            </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('sudah_bayar') }}">
+                                <i class="bi bi-wallet2"></i> Validasi Bayar
+                            </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('disetujui') }}">
+                                <i class="bi bi-card-checklist"></i> Disetujui
+                            </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('dibatalkan') }}">
+                                <i class="bi bi-trash"></i> Dibatalkan
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
-                            @if(auth()->user())
-                            <span>Username: <span class="fw-bolder">{{ auth('admin')->user()->username }}</span></span>
+                            @if (auth()->user())
+                                <span>Username: <span
+                                        class="fw-bolder">{{ auth('admin')->user()->username }}</span></span>
                             @endif
                             <hr>
                             <span>Sebagai:</span>
                             <span class="badge bg-success">Admin</span>
-                            
                         </div>
                     </div>
                 </li>
@@ -46,17 +68,17 @@
                     </a>
                 </li>
 
-                    <li class="sidebar-item  has-sub visually-hidden"> 
-                        <a href="#" class='sidebar-link'>
-                            <i class="bi bi-hexagon-fill"></i>
-                            <span>Halaman Pengguna</span>
-                        </a>
-                        <ul class="submenu">
-                            <li class="submenu-item">
-                                <a href="{{ route('userManagement') }}">Daftar Pengguna</a>
-                            </li>
-                        </ul>
-                    </li>
+                <li class="sidebar-item  has-sub visually-hidden">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-hexagon-fill"></i>
+                        <span>Halaman Pengguna</span>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                            <a href="{{ route('userManagement') }}">Daftar Pengguna</a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="sidebar-item">
                     <a href="{{ route('logout_admin') }}" class='sidebar-link'>

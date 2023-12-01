@@ -1,7 +1,9 @@
 @extends('layouts.master')
+
 @section('menu')
     @extends('klien.sidebar.buatsurvei')
 @endsection
+
 @section('content')
     <div id="main">
         <header class="mb-3">
@@ -9,7 +11,7 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-        
+
         {{-- <div class="page-heading">
             <section class="row">
                 <div class="col-12 col-lg-9">
@@ -137,148 +139,145 @@
         {{-- message --}}
         {!! Toastr::message() !!}
         {{-- START FORM --}}
-        <form action="/simpansurvei" method="post">
+        <form action="{{ route('simpan_survei') }}" method="post">
             @csrf
-        <div class="page-content">
-            <div class="page-title">
-                <div class="row">
-                    <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Buat Survei</h3>
-                        <p class="text-subtitle text-muted">Tambahkan Survei Anda</p>
-                    </div>
-                    <div class="col-12 col-md-6 order-md-2 order-first">
-                        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Survei</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Buat Survei</li>
-                            </ol>
-                        </nav>
+            <div class="page-content">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Buat Survei</h3>
+                            <p class="text-subtitle text-muted">Tambahkan Survei Anda</p>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Survei</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Buat Survei</li>
+                                </ol>
+                            </nav>
+                        </div>
                     </div>
                 </div>
+                <section class="section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Judul dan Deskripsi</h4>
+                        </div>
+                        
+                        <div class="card-body">
+                            <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}" id="id_klien">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="judul">Judul</label>
+                                        <input type="text" name="judul" class="form-control" id="judul"
+                                            placeholder="Masukkan Judul Survei Anda" required>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="judul" class="form-label">Deskripsi</label>
+                                        <textarea name="deskripsi" class="form-control" id="deskripsi"
+                                            rows="3" required></textarea>
+                                    </div>
+                                </div>
+                                    <div class="form-group">
+                                        <label for="jumlah_responden">Target Responden</label>
+                                        <small class="text-muted"><i></i></small>
+                                        <input type="number" name="jumlah_responden" class="form-control" id="jumlah_responden" required>
+                                    </div>
+
+                                    <div class="form-group col-6">
+                                        <label for="tgl_mulai">Tanggal Mulai</label>
+                                        <input type="date" name="tgl_mulai" id="tgl_mulai" class="form-control" placeholder="dd-mm-yyyy" required>
+                                        <p><small class="text-muted"></small>
+                                        </p>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="tgl_selesai">Tanggal Selesai</label>
+                                        <input type="date" name="tgl_selesai" id="tgl_selesai" class="form-control" placeholder="dd-mm-yyyy" required>
+                                        <p><small class="text-muted"></small>
+                                        </p>
+                                    </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div id="sections-container">
+                <section class="section">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="pertanyaan" class="form-label">Pertanyaan</label>
+                                        <textarea class="form-control" id="pertanyaan" rows="3" name="tanya[]" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" id="opsi_1." placeholder="Opsi 1" name="opsi_1[]"> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" id="opsi_2" placeholder="Opsi 2" name="opsi_2[]">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" id="opsi_3" placeholder="Opsi 3" name="opsi_3[]">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" id="opsi_4" placeholder="Opsi 4" name="opsi_4[]">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" id="opsi_5" placeholder="Opsi 5" name="opsi_5[]">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-            <section class="section">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Judul dan Deskripsi</h4>
-                    </div>
-                    
-                    <div class="card-body">
-                        <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="judul">Judul</label>
-                                    <input type="text" name="judul" class="form-control" id="basicInput"
-                                        placeholder="Masukkan Judul Survei Anda" required>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="judul" class="form-label">Deskripsi</label>
-                                    <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1"
-                                        rows="3" required></textarea>
-                                </div>
-                            </div>
-                                <div class="form-group">
-                                    <label for="jumlah_responden">Target Responden</label>
-                                    <small class="text-muted"><i></i></small>
-                                    <input type="number" name="jumlah_responden" class="form-control" id="helpInputTop0" required>
-                                </div>
+            <button type="button" class="btn btn-primary" onclick="addSection()">Tambah Pertanyaan</button>
+            </div>
 
-                                <div class="form-group col-6">
-                                    <label for="tgl_mulai">Tanggal Mulai</label>
-                                    <input type="date" name="tgl_mulai" id="helperText" class="form-control" placeholder="dd-mm-yyyy" required>
-                                    <p><small class="text-muted"></small>
-                                    </p>
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="tgl_selesai">Tanggal Selesai</label>
-                                    <input type="date" name="tgl_selesai" id="helperText" class="form-control" placeholder="dd-mm-yyyy" required>
-                                    <p><small class="text-muted"></small>
-                                    </p>
-                                </div>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div id="sections-container">
-            <section class="section">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="pertanyaan" class="form-label">Pertanyaan</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                        rows="3" name="tanya" required></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group"> 
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 1" name="opsi_1" required> 
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 2" name="opsi_2" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 3" name="opsi_3">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 4" name="opsi_4">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" id="basicInput" placeholder="Opsi 5" name="opsi_5">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <button type="button" class="btn btn-primary" onclick="addSection()">Tambah Pertanyaan</button>
-        </div>
-
-        <input type="hidden" name="pertanyaanArray" id="pertanyaanArrayInput" value="">
-        <div class="col-md-12 text-center">
-            <button type="button" class="btn btn-primary mx-auto d-block" onclick="submitForm()">Kirim Survei</button>
-        </div>
-        
-
+            {{-- <input type="hidden" name="pertanyaanArray" id="pertanyaanArrayInput" value=""> --}}
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary mx-auto d-block" onclick="submitForm()">Kirim Survei</button>
+            </div>
         <footer>
             <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
                 <div class="float-start">
@@ -287,11 +286,13 @@
             </div>
         </footer>
     </div>
+    </form>
+    {{-- END FORM --}}
 
     <script>
         var sectionCounter = 1;
         var pertanyaanArray = [];
-    
+
         function addSection() {
             // Clone the first section
             var newSection = $("#sections-container .section:first").clone();
@@ -306,11 +307,11 @@
                 var currentName = $(this).attr("name");
 
                 if (currentId) {
-                    $(this).attr("id", currentId + sectionCounter);
+                    $(this).attr("id", currentId + '[]');
                 }
 
                 if (currentName) {
-                    $(this).attr("name", currentName + sectionCounter);
+                    $(this).attr("name", currentName + '[]');
                 }
             });
 
@@ -322,50 +323,54 @@
 
             // Collect data from the new section
             var sectionData = {
-                pertanyaan: newSection.find("textarea[name^='pertanyaan']").val(),
-                opsi_1: newSection.find("input[name^='opsi_1']").val(),
-                opsi_2: newSection.find("input[name^='opsi_2']").val(),
-                opsi_3: newSection.find("input[name^='opsi_3']").val(),
-                opsi_4: newSection.find("input[name^='opsi_4']").val(),
-                opsi_5: newSection.find("input[name^='opsi_5']").val(),
+                pertanyaan: newSection.find("#tanya".$sectionCounter).val(),
+                opsi_1: newSection.find("#opsi_1".$sectionCounter).val(),
+                opsi_2: newSection.find("#opsi_2".$sectionCounter).val(),
+                opsi_3: newSection.find("#opsi_3".$sectionCounter).val(),
+                opsi_4: newSection.find("#opsi_4".$sectionCounter).val(),
+                opsi_5: newSection.find("#opsi_5".$sectionCounter).val(),
             };
 
             // Add the collected data to an array
             pertanyaanArray.push(sectionData);
+
         }
 
-        
+     
         function submitForm() {
-        // Loop through each section and submit the data
-        var formData = {
-            id_klien: $("input[name='id_klien']").val(),
-            judul: $("input[name='judul']").val(),
-            deskripsi: $("textarea[name='deskripsi']").val(),
-            jumlah_responden: $("input[name='jumlah_responden']").val(),
-            tgl_mulai: $("input[name='tgl_mulai']").val(),
-            tgl_selesai: $("input[name='tgl_selesai']").val(),
-            pertanyaan: pertanyaanData,
-        };
+            // Loop through each section and submit the data
+            var formData = {
+                judul: $("#judul").val(),
+                deskripsi: $("#deskripsi").val(),
+                tgl_mulai: $("#tgl_mulai").val(),
+                tgl_selesai: $("#tgl_selesai").val(),
+                jumlah_responden: $("#jumlah_responden").val(),
+            };
 
-        // Convert the data to JSON
-        var jsonData = JSON.stringify(formData);
+            var combinedData = {
+                formData: formData,
+                pertanyaanArray: pertanyaanArray
+            };
 
-        $.ajax({
-            type: "POST",
-            url: "/simpansurvei",
-            data: { data: jsonData, _token: '{{ csrf_token() }}' }, 
-            success: function (response) {
-                console.log(response);
-                // Handle success, redirect, or show a success message
-            },
-            error: function (error) {
-                console.log(error);
-                // Handle error or show an error message
-            }
-        });
-        
-    }
+            // Convert the data to JSON
+            $.ajax({
+                type: "POST",
+                url: "/simpansurvei",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(combinedData),
+                success: function (response) {
+                    console.log("Data successfully stored:", response);
+                    // Handle success, redirect, or show a success message
+                },
+                error: function (error) {
+                    console.log("Error storing data:", error);
+                    // Handle error or show an error message
+                }
+            });
+        }
+
     </script>
-    </form>
-    {{-- END FORM --}}
 @endsection

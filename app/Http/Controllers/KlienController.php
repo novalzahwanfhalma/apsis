@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Klien;
+use App\Models\Survei;
 use DB;
 
 class KlienController extends Controller
@@ -16,8 +18,9 @@ class KlienController extends Controller
     public function index()
     {
         $Klien = Klien::all();
+        $kliensurvei = Auth::user()->survei;
 
-        return view('klien.home', ['klien' => $Klien]);
+        return view('klien.home', ['klien' => $Klien], compact('kliensurvei'));
     }
 
     /**
@@ -47,9 +50,10 @@ class KlienController extends Controller
     }
 
 
-    public function pembayaran()
+    public function pembayaran(Request $request, $id_survei)
     {
-        return view('klien.pembayaran');
+        $survei = Survei::find($request->id_survei);
+        return view('klien.pembayaran', compact('survei'));
     }
 
     public function daftar_pembayaran()

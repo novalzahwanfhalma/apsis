@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('klien.sidebar.buatsurvei')
+    @extends('admin.sidebar.dashboard_admin')
 @endsection
 @section('content')
     <div id="main">
@@ -9,7 +9,7 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-        
+
         {{-- <div class="page-heading">
             <section class="row">
                 <div class="col-12 col-lg-9">
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     {{-- user profile modal --}}
-                    {{-- <div class="card-body">
+        {{-- <div class="card-body">
                         <!--Basic Modal -->
                         <div class="modal fade text-left" id="default" tabindex="-1" aria-labelledby="myModalLabel1"
                             style="display: none;" aria-hidden="true">
@@ -129,9 +129,9 @@
                             </div>
                         </div>
                     </div> --}}
-                    {{-- end user profile modal --}}
+        {{-- end user profile modal --}}
 
-                {{-- </div>
+        {{-- </div>
             </section>
         </div> --}}
         {{-- message --}}
@@ -140,14 +140,14 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Survei</h3>
-                        <p class="text-subtitle text-muted">Detail Survei Anda</p>
+                        <h3>Sortir Survei</h3>
+                        <p class="text-subtitle text-muted">Detail Sortir Survei</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('detail_survei') }}">Survei</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Detail Survei</li>
+                                <li class="breadcrumb-item"><a href="{{ route('sortir_admin') }}">Sortir</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Detail Sortir</li>
                             </ol>
                         </nav>
                     </div>
@@ -168,85 +168,87 @@
                                     </p>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label"><strong>Deskripsi :</strong></label>
+                                    <label for="exampleFormControlTextarea1" class="form-label"><strong>Deskripsi
+                                            :</strong></label>
                                     <p type="text">
                                         {{ $survei->deskripsi }}
                                     </p>
                                 </div>
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="helpInputTop"><strong>Target Responden : </strong></label>
-                                    <p type="text">
-                                        {{ $survei->jumlah_responden }}
-                                    </p>
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="helperText"><strong>Status : </strong></label>
-                                    
-                                    @php
-                                        $status = $survei->status;
-                                        $badgeColor = '';
-
-                                        switch ($status) {
-                                                case 'Sortir':
-                                                    $badgeColor = 'bg-secondary';
-                                                    break;
-                                                case 'Belum Bayar':
-                                                    $badgeColor = 'bg-danger';
-                                                    break;
-                                                case 'Sudah Bayar':
-                                                    $badgeColor = 'bg-info';
-                                                    break;
-                                                case 'Disetujui':
-                                                    $badgeColor = 'bg-success';
-                                                    break;
-                                                case 'Ditolak':
-                                                    $badgeColor = 'bg-dark';
-                                                    break;
-                                                // Add more cases as needed
-                                                default:
-                                                    $badgeColor = 'bg-warning';
-                                        }
-                                    @endphp
-                                    <p>
-                                        <span class="badge {{ $badgeColor }}">{{ $status }}</span>
-                                    </p>
-                                    <p><small class="text-muted"></small>
-                                    </p>
-                                </div>
-
-                                <div class="form-group col-6">
-                                    <label for="helperText"><strong>Tanggal Mulai :</strong></label>
-                                    <p type="text">
-                                        {{ $survei->tgl_mulai }}
-                                    </p>
-                                    <p><small class="text-muted"></small>
-                                    </p>
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="helperText"><strong>Tanggal Selesai : </strong></label>
-                                    <p type="text">
-                                        {{ $survei->tgl_selesai }}
-                                    </p>
-                                    <p><small class="text-muted"></small>
-                                    </p>
-                                </div>
                             </div>
-                            
+                            <div class="form-group col-6">
+                                <label for="helpInputTop"><strong>Target Responden : </strong></label>
+                                <p type="text">
+                                    {{ $survei->jumlah_responden }}
+                                </p>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="helperText"><strong>Status : </strong></label>
+                                
+                                @php
+                                    $status = $survei->status;
+                                    $badgeColor = '';
+
+                                    switch ($status) {
+                                            case 'Sortir':
+                                                $badgeColor = 'bg-secondary';
+                                                break;
+                                            case 'Belum Bayar':
+                                                $badgeColor = 'bg-danger';
+                                                break;
+                                            case 'Sudah Bayar':
+                                                $badgeColor = 'bg-info';
+                                                break;
+                                            case 'Disetujui':
+                                                $badgeColor = 'bg-success';
+                                                break;
+                                            case 'Ditolak':
+                                                $badgeColor = 'bg-dark';
+                                                break;
+                                            // Add more cases as needed
+                                            default:
+                                                $badgeColor = 'bg-warning';
+                                    }
+                                @endphp
+                                <p>
+                                    <span class="badge {{ $badgeColor }}">{{ $status }}</span>
+                                </p>
+                                <p><small class="text-muted"></small>
+                                </p>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="helperText"><strong>Tanggal Mulai :</strong></label>
+                                <p type="text">
+                                    {{ $survei->tgl_mulai }}
+                                </p>
+                                <p><small class="text-muted"></small>
+                                </p>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="helperText"><strong>Tanggal Selesai : </strong></label>
+                                <p type="text">
+                                    {{ $survei->tgl_selesai }}
+                                </p>
+                                <p><small class="text-muted"></small>
+                                </p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
-            </section>
+        </div>
+        </section>
 
-            <div id="sections-container">
+        <div id="sections-container">
             <section class="section">
-                @foreach ($pertanyaan as $pertanyaan)
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1" class="form-label"><strong>Pertanyaan</strong></label>
+                                    <h4 class="card-title">Pertanyaan</h4>
+                                </div>
+                                @foreach ($pertanyaan as $pertanyaan)
+                                <div class="form-group" style="padding-top: 30px">
                                     <p type="text">
                                         {{ $pertanyaan->pertanyaan }}
                                     </p>
@@ -260,62 +262,174 @@
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled"  disabled>
+                                        id="flexRadioDisabled" disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
                                         {{ $pertanyaan->opsi_2 }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled"  disabled>
+                                        id="flexRadioDisabled" disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
                                         {{ $pertanyaan->opsi_3 }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled"  disabled>
+                                        id="flexRadioDisabled" disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
                                         {{ $pertanyaan->opsi_4 }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled"  disabled>
+                                        id="flexRadioDisabled" disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
                                         {{ $pertanyaan->opsi_5 }}
                                     </label>
                                 </div>
-                                    {{-- <div class="row">
-                                        <div class="col-md-1">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-11">
-                                            <input type="text" class="form-control" id="basicInput" placeholder="Opsi 1">
-                                        </div>
-                                    </div> --}}
-                            
-                            </div>               
+                                @endforeach
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                @endforeach
             </section>
-            
 
+            <div class="row">
+                <div class="col-2 col-lg-2" style="height: 100px;">
+                    <div class="card text-center">
+                        <button class="btn btn-success btn-lg font-semibold" data-bs-toggle="modal"
+                            data-bs-target="#modalSetuju">
+                            Setuju
+                        </button>
+                    </div>
+
+                    <!-- Modal Setuju -->
+                    <div class="modal fade text-left" id="modalSetuju" tabindex="-1" aria-labelledby="modalSetujuLabel"
+                        style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalSetujuLabel">Pembayaran</h5>
+                                    <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Detail Harga</h5>
+                                            <!-- Isian detail harga sebagai textarea dengan placeholder -->
+                                            <textarea class="form-control" rows="5" placeholder="Masukkan detail harga di sini..."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Form di dalam modal -->
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">Total harga</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">Rp</span>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                                    placeholder="Ketik harga">
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown di dalam modal -->
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlSelect1" class="form-label">Jumlah Poin</label>
+                                            <select class="form-select" id="exampleFormControlSelect1">
+                                                <option value="1">5</option>
+                                                <option value="2">10</option>
+                                                <option value="3">15</option>
+                                                <option value="4">20</option>
+                                                <option value="5">25</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Tutup</button>
+                                    <button type="button" class="btn btn-success"
+                                        onclick="handleSetuju()">Setuju</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-2 col-lg-2" style="height: 100px;">
+                    <div class="card text-center">
+                        <button class="btn btn-danger btn-lg font-semibold" data-bs-toggle="modal"
+                            data-bs-target="#modalTidak">
+                            Tidak
+                        </button>
+                    </div>
+
+                    <!-- Modal Tidak -->
+                    <div class="modal fade text-left" id="modalTidak" tabindex="-1" aria-labelledby="modalTidakLabel"
+                        style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTidakLabel">Alasan Pembatalan</h5>
+                                    <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio">
+                                        <label class="form-check-label" for="flexRadio">
+                                            Mengandung sara
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio">
+                                        <label class="form-check-label" for="flexRadio">
+                                            Pertanyaan sensitif
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio">
+                                        <label class="form-check-label" for="flexRadio">
+                                            Kesalahan penulisan
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio">
+                                        <label class="form-check-label" for="flexRadio">
+                                            Rasis
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Tutup
+                                    </button>
+                                    <button type="button" class="btn btn-success"
+                                        onclick="handleTidak()">Setuju</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {{-- <section class="row">
                 <div class="col-12 col-lg-9">
                 </div>
                 <div class="col-3 col-lg-3">
-                    
-                    {{-- user profile modal --}}
-                    
-                    {{-- end user profile modal --}}
 
-                {{-- </div> --}}
+                    {{-- user profile modal --}}
+
+            {{-- end user profile modal --}}
+
+            {{-- </div> --}}
             {{-- </section> --}}
 
         </div>

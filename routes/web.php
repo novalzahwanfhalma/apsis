@@ -10,6 +10,8 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\LockScreen;
 use App\Http\Controllers\SurveiController;
+use App\Http\Controllers\AdminController;
+
 
 
 /*
@@ -53,18 +55,27 @@ Route::get('/dashboard_klien', [App\Http\Controllers\KlienController::class, 'in
 Route::get('/dashboard_admin', [App\Http\Controllers\AdminController::class, 'index'])->name('home_admin');
 
 Route::get('/buatsurvei', [App\Http\Controllers\SurveiController::class, 'create'])->name('buat_survei');
-Route::post('/simpansurvei', [App\Http\Controllers\SurveiController::class, 'store']);
+Route::post('/simpansurvei', [App\Http\Controllers\SurveiController::class, 'store'])->name('simpan_survei');
 
 Route::get('/detail_survei', [App\Http\Controllers\SurveiController::class, 'index'])->name('detail_survei');
 Route::get('/detail_survei/{id_survei}', [App\Http\Controllers\SurveiController::class, 'show'])->name('detail_survei2');
 
-Route::get('/daftar_pembayaran', [App\Http\Controllers\SurveiController::class, 'index_pembayaran'])->name('daftar_pembayaran');
-Route::get('/pembayaran', [App\Http\Controllers\KlienController::class, 'pembayaran'])->name('pembayaran');
+Route::get('/pembayaran', [App\Http\Controllers\SurveiController::class, 'index_pembayaran'])->name('daftar_pembayaran');
+Route::get('/pembayaran/{id_survei}', [App\Http\Controllers\KlienController::class, 'pembayaran'])->name('pembayaran');
 Route::post('/simpan_pembayaran', [App\Http\Controllers\SurveiController::class, 'store_pembayaran'])->name('simpan_pembayaran');
 
 Route::get('/verifikasi', [App\Http\Controllers\SurveiController::class, 'index_verifikasi'])->name('verifikasi');
 
-
+// ----------------------------- menu sidebar admin ------------------------------//
+Route::get('/sortir_admin', [App\Http\Controllers\AdminController::class, 'sortir_admin'])->name('sortir_admin');
+Route::get('/detail_survei_sortir/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_survei_sortir'])->name('detail_survei_sortir');
+Route::get('/detail_survei_home/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_survei_home'])->name('detail_survei_home');
+Route::get('/sudah_bayar', [App\Http\Controllers\AdminController::class, 'sudah_bayar'])->name('sudah_bayar');
+Route::get('/detail_sudah_bayar/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_sudah_bayar'])->name('detail_sudah_bayar');
+Route::get('/disetujui', [App\Http\Controllers\AdminController::class, 'disetujui'])->name('disetujui');
+Route::get('/detail_disetujui/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_disetujui'])->name('detail_disetujui');
+Route::get('/dibatalkan', [App\Http\Controllers\AdminController::class, 'dibatalkan'])->name('dibatalkan');
+Route::get('/detail_dibatalkan/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_dibatalkan'])->name('detail_dibatalkan');
 
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('/logoutadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'logout'])->name('logout_admin');
@@ -89,4 +100,3 @@ Route::get('/change/password', [App\Http\Controllers\UserManagementController::c
 
 Route::post('/change/password/db', [App\Http\Controllers\UserManagementController::class, 'changePasswordDB'])
     ->name('change/password/db');
-

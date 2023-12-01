@@ -143,14 +143,14 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Pembayaran</h3>
-                        <p class="text-subtitle text-muted">Pembayaran Survei</p>
+                        <h3>Daftar Pembayaran</h3>
+                        <p class="text-subtitle text-muted">Daftar Pembayaran Survei Anda</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Survei</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Pembayaran</li>
+                                <li class="breadcrumb-item"><a href="{{ route('home_klien') }}">Survei</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Daftar Pembayaran</li>
                             </ol>
                         </nav>
                     </div>
@@ -162,7 +162,7 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        Daftar Survei Anda
+                        Daftar Survei
                     </div>
                     <div class="card-body">
                         <table class="table table-striped" id="table1">
@@ -194,7 +194,7 @@
                                     <td>{{ $survei->nominal }}</td>
                                     <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">{{ $survei->deskripsi_bayar }}</td>
                                     <td>
-                                        <a href="{{ route('pembayaran') }}"><i class="bi bi-wallet2"> </i>Bayar</button>
+                                        <a href="{{ route('pembayaran', ['id_survei' => $survei->id_survei]) }}"><i class="bi bi-wallet2"> </i>Bayar</button>
                                     </td>
                                     <td>
                                         <span class="badge bg-danger">Belum Bayar</span>

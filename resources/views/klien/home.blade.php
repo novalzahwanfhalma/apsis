@@ -9,7 +9,7 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-        
+
         <div class="page-heading">
             <section class="row">
                 <div class="col-12 col-lg-9">
@@ -147,57 +147,48 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Survei</th>
-                                    <th>Jumlah Pertanyaan</th>
-                                    <th>Jumlah Poin</th>
+                                    <th style="max-width: 450px;">Deskripsi</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ( $kliensurvei as $key => $survei)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Pergaulan Remaja</td>
-                                    <td>12</td>
-                                    <td>25</td>
+                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ $survei->judul }}</td>
+                                    <td style="max-width: 450px; overflow: hidden; text-overflow: ellipsis;">{{ $survei->deskripsi }}</td>
                                     <td>
-                                        <span class="badge bg-success">Diterima</span>
+                                        @php
+                                            $status = $survei->status;
+                                            $badgeColor = '';
+
+                                            switch ($status) {
+                                                case 'Sortir':
+                                                    $badgeColor = 'bg-secondary';
+                                                    break;
+                                                case 'Belum Bayar':
+                                                    $badgeColor = 'bg-danger';
+                                                    break;
+                                                case 'Sudah Bayar':
+                                                    $badgeColor = 'bg-info';
+                                                    break;
+                                                case 'Disetujui':
+                                                    $badgeColor = 'bg-success';
+                                                    break;
+                                                case 'Ditolak':
+                                                    $badgeColor = 'bg-dark';
+                                                    break;
+                                                // Add more cases as needed
+                                                default:
+                                                    $badgeColor = 'bg-warning';
+                                            }
+                                        @endphp
+
+                                        <span class="badge {{ $badgeColor }}">{{ $status }}</span>
+                                        {{-- <span class="badge bg-success">Disetujui</span> --}}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>E-Commerce Benefit</td>
-                                    <td>20</td>
-                                    <td>20</td>
-                                    <td>
-                                        <span class="badge bg-success">Diterima</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Perkuliahan Hybrid</td>
-                                    <td>15</td>
-                                    <td>25</td>
-                                    <td>
-                                        <span class="badge bg-danger">Belum Bayar</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Globalisasi</td>
-                                    <td>14</td>
-                                    <td>25</td>
-                                    <td>
-                                        <span class="badge bg-warning">Menunggu Verifikasi</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Politik Menjelang Pemilu</td>
-                                    <td>10</td>
-                                    <td>50</td>
-                                    <td>
-                                        <span class="badge bg-dark">Ditolak</span>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -205,15 +196,14 @@
 
             </section>
 
-            
 
             {{-- <section class="row">
                 <div class="col-12 col-lg-9">
                 </div>
                 <div class="col-3 col-lg-3">
-                    
+
                     {{-- user profile modal --}}
-                    
+
                     {{-- end user profile modal --}}
 
                 {{-- </div> --}}

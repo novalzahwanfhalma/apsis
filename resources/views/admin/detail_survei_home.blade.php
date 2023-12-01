@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('klien.sidebar.buatsurvei')
+    @extends('admin.sidebar.dashboard_admin')
 @endsection
 @section('content')
     <div id="main">
@@ -9,7 +9,7 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-        
+
         {{-- <div class="page-heading">
             <section class="row">
                 <div class="col-12 col-lg-9">
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     {{-- user profile modal --}}
-                    {{-- <div class="card-body">
+        {{-- <div class="card-body">
                         <!--Basic Modal -->
                         <div class="modal fade text-left" id="default" tabindex="-1" aria-labelledby="myModalLabel1"
                             style="display: none;" aria-hidden="true">
@@ -129,9 +129,9 @@
                             </div>
                         </div>
                     </div> --}}
-                    {{-- end user profile modal --}}
+        {{-- end user profile modal --}}
 
-                {{-- </div>
+        {{-- </div>
             </section>
         </div> --}}
         {{-- message --}}
@@ -141,12 +141,12 @@
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
                         <h3>Survei</h3>
-                        <p class="text-subtitle text-muted">Detail Survei Anda</p>
+                        <p class="text-subtitle text-muted">Detail Survei</p>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('detail_survei') }}">Survei</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('home_admin') }}">Dashboard</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Detail Survei</li>
                             </ol>
                         </nav>
@@ -164,129 +164,179 @@
                                 <div class="form-group">
                                     <label for="basicInput"><strong>Judul : </strong></label>
                                     <p type="text">
-                                        {{ $survei->judul }}
+                                        Perkuliahan Hybrid
                                     </p>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label"><strong>Deskripsi :</strong></label>
+                                    <label for="exampleFormControlTextarea1" class="form-label"><strong>Deskripsi
+                                            :</strong></label>
                                     <p type="text">
-                                        {{ $survei->deskripsi }}
-                                    </p>
-                                </div>
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="helpInputTop"><strong>Target Responden : </strong></label>
-                                    <p type="text">
-                                        {{ $survei->jumlah_responden }}
-                                    </p>
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="helperText"><strong>Status : </strong></label>
-                                    
-                                    @php
-                                        $status = $survei->status;
-                                        $badgeColor = '';
-
-                                        switch ($status) {
-                                                case 'Sortir':
-                                                    $badgeColor = 'bg-secondary';
-                                                    break;
-                                                case 'Belum Bayar':
-                                                    $badgeColor = 'bg-danger';
-                                                    break;
-                                                case 'Sudah Bayar':
-                                                    $badgeColor = 'bg-info';
-                                                    break;
-                                                case 'Disetujui':
-                                                    $badgeColor = 'bg-success';
-                                                    break;
-                                                case 'Ditolak':
-                                                    $badgeColor = 'bg-dark';
-                                                    break;
-                                                // Add more cases as needed
-                                                default:
-                                                    $badgeColor = 'bg-warning';
-                                        }
-                                    @endphp
-                                    <p>
-                                        <span class="badge {{ $badgeColor }}">{{ $status }}</span>
-                                    </p>
-                                    <p><small class="text-muted"></small>
-                                    </p>
-                                </div>
-
-                                <div class="form-group col-6">
-                                    <label for="helperText"><strong>Tanggal Mulai :</strong></label>
-                                    <p type="text">
-                                        {{ $survei->tgl_mulai }}
-                                    </p>
-                                    <p><small class="text-muted"></small>
-                                    </p>
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="helperText"><strong>Tanggal Selesai : </strong></label>
-                                    <p type="text">
-                                        {{ $survei->tgl_selesai }}
-                                    </p>
-                                    <p><small class="text-muted"></small>
+                                        Kuliah hybrid merupakan sebuah metode perkuliahan yang menggabungkan antara
+                                        konsep kuliah secara daring atau online dengan pembelajaran tatap muka atau PTM.
+                                        Dengan begitu, maka ada saatnya kuliah dilakukan secara jarak jauh atau PJJ
+                                        dan ada juga saat di mana mahasiswa datang ke kelas dan belajar secara tatap muka
                                     </p>
                                 </div>
                             </div>
-                            
+                            <div class="form-group">
+                                <label for="helpInputTop"><strong>Target Responden : </strong></label>
+                                <p type="text">
+                                    100
+                                </p>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <label for="helperText"><strong>Tanggal Mulai :</strong></label>
+                                <p type="text">
+                                    22/11/2023
+                                </p>
+                                <p><small class="text-muted"></small>
+                                </p>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="helperText"><strong>Tanggal Selesai : </strong></label>
+                                <p type="text">
+                                    30/11/2023
+                                </p>
+                                <p><small class="text-muted"></small>
+                                </p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
-            </section>
+        </div>
+        </section>
 
-            <div id="sections-container">
+        <div id="sections-container">
             <section class="section">
-                @foreach ($pertanyaan as $pertanyaan)
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1" class="form-label"><strong>Pertanyaan</strong></label>
+                                    <label for="exampleFormControlTextarea1"
+                                        class="form-label"><strong>Pertanyaan</strong></label>
                                     <p type="text">
-                                        {{ $pertanyaan->pertanyaan }}
+                                        Bagaimana perkuliahan hybrid menurut anda?
                                     </p>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                         id="flexRadioDisabled" disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        {{ $pertanyaan->opsi_1 }}
+                                        Sangat Baik
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled"  disabled>
+                                        id="flexRadioDisabled" disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        {{ $pertanyaan->opsi_2 }}
+                                        Baik
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled"  disabled>
+                                        id="flexRadioDisabled" disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        {{ $pertanyaan->opsi_3 }}
+                                        Cukup Baik
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled"  disabled>
+                                        id="flexRadioDisabled" disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        {{ $pertanyaan->opsi_4 }}
+                                        Tidak Baik
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled"  disabled>
+                                        id="flexRadioDisabled" disabled>
                                     <label class="form-check-label" for="flexRadioDisabled">
-                                        {{ $pertanyaan->opsi_5 }}
+                                        Sangat Tidak Baik
                                     </label>
                                 </div>
-                                    {{-- <div class="row">
+                                <div class="form-group" style="padding-top: 30px">
+                                    <p type="text">
+                                        Bagaimana perkuliahan hybrid menurut anda?
+                                    </p>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Sangat Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Cukup Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Tidak Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Sangat Tidak Baik
+                                    </label>
+                                </div>
+                                <div class="form-group" style="padding-top: 30px">
+                                    <p type="text">
+                                        Bagaimana perkuliahan hybrid menurut anda?
+                                    </p>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Sangat Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Cukup Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Tidak Baik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                        id="flexRadioDisabled" disabled>
+                                    <label class="form-check-label" for="flexRadioDisabled">
+                                        Sangat Tidak Baik
+                                    </label>
+                                </div>
+                                {{-- <div class="row">
                                         <div class="col-md-1">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
@@ -296,26 +346,23 @@
                                             <input type="text" class="form-control" id="basicInput" placeholder="Opsi 1">
                                         </div>
                                     </div> --}}
-                            
-                            </div>               
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                @endforeach
             </section>
-            
-
 
             {{-- <section class="row">
                 <div class="col-12 col-lg-9">
                 </div>
                 <div class="col-3 col-lg-3">
-                    
-                    {{-- user profile modal --}}
-                    
-                    {{-- end user profile modal --}}
 
-                {{-- </div> --}}
+                    {{-- user profile modal --}}
+
+            {{-- end user profile modal --}}
+
+            {{-- </div> --}}
             {{-- </section> --}}
 
         </div>

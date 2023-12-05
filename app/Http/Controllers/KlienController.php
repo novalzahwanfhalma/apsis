@@ -75,7 +75,7 @@ class KlienController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -84,9 +84,12 @@ class KlienController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $id_klien = Auth::user()->id_klien;
+        $klien = Klien::find($id_klien);
+
+        return view('klien.profil', compact('klien'));
     }
 
     /**
@@ -96,9 +99,47 @@ class KlienController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id_klien)
     {
-        //
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+        ]);
+
+        $id_klien = Auth::user()->id_klien;
+        $klien = Klien::find($id_klien);
+
+        // Memperbarui nilai-nilai yang diubah
+        $klien->nama = $request->input('nama');
+        $klien->username = $request->input('username');
+        $klien->email = $request->input('email');
+
+        $klien->save();
+
+        return redirect()->route('editprofil')->with('success', 'Profil berhasil diperbarui.');
+    }
+
+    public function updatePassword(Request $request, string $id_klien)
+    {
+        $request->validate([
+            'password_lama' => 'required',
+            'password_baru' => 'required|min:8',
+        ]);
+
+        $id_klien = auth()->user()->id_klien;
+        $klien = Klien::find($id_klien);
+
+        // Check if the entered old password matches the hashed stored password
+        if (!Hash::check($request->input('password_lama'), $klien->password)) {
+            return redirect()->back()->with('error', 'Password lama tidak sesuai.');
+        }
+
+        // Update the user's password with the new hashed password
+        $klien->password = bcrypt($request->input('password_baru'));
+        $klien->save();
+
+        return redirect()->back()->with('success', 'Password berhasil diperbarui.');
     }
 
     /**

@@ -31,7 +31,7 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        Sortir
+                        Daftar Survei
                     </div>
                     <div class="card-body">
                         <table class="table table-striped" id="table1">

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('menu')
-    @extends('klien.sidebar.buatsurvei')
+    @extends('klien.sidebar.profil')
 @endsection
 
 @section('content')
@@ -139,144 +139,100 @@
         {{-- message --}}
         {!! Toastr::message() !!}
         {{-- START FORM --}}
-        <form action="{{ route('simpan_survei') }}" method="post">
-            @csrf
             <div class="page-content">
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Buat Survei</h3>
-                            <p class="text-subtitle text-muted">Tambahkan Survei Anda</p>
+                            <h3>Edit Profil</h3>
+                            <p class="text-subtitle text-muted">Edit Profil Anda</p>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Survei</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Buat Survei</li>
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Edit Profil</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
+
+                <form action="{{ route('simpan_datadiri', ['id_klien' => $klien->id_klien]) }}" method="post">
+                    @csrf
                 <section class="section">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Judul dan Deskripsi</h4>
+                            <h4 class="card-title">Data Diri Anda</h4>
                         </div>
-                        
                         <div class="card-body">
                             <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}" id="id_klien">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="judul">Judul</label>
-                                        <input type="text" name="judul" class="form-control" id="judul"
-                                            placeholder="Masukkan Judul Survei Anda" required>
+                                        <label for="nama">Nama</label>
+                                        <input type="text" name="nama" class="form-control" id="nama"
+                                            placeholder=" " value="{{ old('nama', $klien->nama ?? '') }}">
                                     </div>
-                                    <div class="form-group mb-3">
-                                        <label for="judul" class="form-label">Deskripsi</label>
-                                        <textarea name="deskripsi" class="form-control" id="deskripsi"
-                                            rows="3" required></textarea>
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input type="text" name="username" class="form-control" id="username"
+                                            placeholder=" " value="{{ old('username', $klien->username ?? '') }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" name="email" class="form-control" id="email"
+                                            placeholder=" " value="{{ old('email', $klien->email ?? '') }}">
                                     </div>
                                 </div>
-                                    <div class="form-group">
-                                        <label for="jumlah_responden">Target Responden</label>
-                                        <small class="text-muted"><i></i></small>
-                                        <input type="number" name="jumlah_responden" class="form-control" id="jumlah_responden" required>
-                                    </div>
-
-                                    <div class="form-group col-6">
-                                        <label for="tgl_mulai">Tanggal Mulai</label>
-                                        <input type="date" name="tgl_mulai" id="tgl_mulai" class="form-control" placeholder="dd-mm-yyyy" required>
-                                        <p><small class="text-muted"></small>
-                                        </p>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="tgl_selesai">Tanggal Selesai</label>
-                                        <input type="date" name="tgl_selesai" id="tgl_selesai" class="form-control" placeholder="dd-mm-yyyy" required>
-                                        <p><small class="text-muted"></small>
-                                        </p>
-                                    </div>
-
-
                             </div>
                         </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <span></span>
+                            <button type="submit" class="btn btn-light-primary" onclick="showConfirmation()">Simpan Data Diri</button>
+                        </div>
+                        </form>
+
                     </div>
                 </section>
 
-                <div id="sections-container">
+
+                <form action="{{ route('simpan_survei') }}" method="post">
+                    @csrf
                 <section class="section">
                     <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Password</h4>
+                        </div>        
                         <div class="card-body">
+                            <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}" id="id_klien">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="pertanyaan" class="form-label">Pertanyaan</label>
-                                        <textarea class="form-control" id="pertanyaan" rows="3" name="tanya[]" required></textarea>
+                                        <label for="password">Password Lama</label>
+                                        <input type="password" name="password" class="form-control" id="password"
+                                            placeholder="Masukkan Password Lama Anda">
                                     </div>
+                                    <br>
                                     <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" id="opsi_1." placeholder="Opsi 1" name="opsi_1[]"> 
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" id="opsi_2" placeholder="Opsi 2" name="opsi_2[]">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" id="opsi_3" placeholder="Opsi 3" name="opsi_3[]">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" id="opsi_4" placeholder="Opsi 4" name="opsi_4[]">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" id="opsi_5" placeholder="Opsi 5" name="opsi_5[]">
-                                        </div>
+                                        <label for="password">Password Baru</label>
+                                        <input type="password" name="password" class="form-control" id="password"
+                                            placeholder="Masukkan Password Baru Anda">
                                     </div>
                                 </div>
-
                             </div>
                         </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <span></span>
+                            <button class="btn btn-light-primary">Simpan Password</button>
+                        </div>
+                        </form>
                     </div>
                 </section>
-            </div>
-            <button type="button" class="btn btn-primary" onclick="addSection()">Tambah Pertanyaan</button>
+
             </div>
 
             {{-- <input type="hidden" name="pertanyaanArray" id="pertanyaanArrayInput" value=""> --}}
             <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-primary mx-auto d-block" onclick="submitForm(e)">Kirim Survei</button>
             </div>
         <footer>
             <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
@@ -290,107 +246,14 @@
     {{-- END FORM --}}
 
     <script>
-        var sectionCounter = 1;
-        var pertanyaanArray = [];
-
-        function addSection() {
-            // Clone the first section
-            var newSection = $("#sections-container .section:first").clone();
-
-            // Clear input values and textarea content in the cloned section
-            newSection.find("input, textarea").val('');
-            newSection.find("input[type=radio]").prop('checked', false);
-
-            // Increment IDs and names to avoid duplicates
-            newSection.find("*").each(function () {
-                var currentId = $(this).attr("id");
-                var currentName = $(this).attr("name");
-
-                if (currentId) {
-                    $(this).attr("id", currentId);
-                }
-
-                if (currentName) {
-                    $(this).attr("name", currentName);
-                }
-            });
-
-            // Increment the section counter
-            sectionCounter++;
-
-            // Append the new section to the container
-            $("#sections-container").append(newSection);
-
-            // Collect data from the new section
-            var sectionData = {
-                pertanyaan: newSection.find("#tanya".$sectionCounter).val(),
-                opsi_1: newSection.find("#opsi_1".$sectionCounter).val(),
-                opsi_2: newSection.find("#opsi_2".$sectionCounter).val(),
-                opsi_3: newSection.find("#opsi_3".$sectionCounter).val(),
-                opsi_4: newSection.find("#opsi_4".$sectionCounter).val(),
-                opsi_5: newSection.find("#opsi_5".$sectionCounter).val(),
-            };
-
-            // Add the collected data to an array
-            pertanyaanArray.push(sectionData);
-
-        }
-
-        function removeSection() {
-        // Ensure that there is at least one section
-        if (sectionCounter > 1) {
-            // Remove the last section
-            $("#sections-container .section:last").remove();
-
-            // Decrement the section counter
-            sectionCounter--;
-
-            // Remove the corresponding data from the array
-            pertanyaanArray.pop();
-        }
-    }
-     
-        function submitForm(e) {
-            e.preventDefault();
-            if ( confirm("Apakah Anda yakin ingin menyimpan survei?") ){
-                var formData = {
-                judul: $("#judul").val(),
-                deskripsi: $("#deskripsi").val(),
-                tgl_mulai: $("#tgl_mulai").val(),
-                tgl_selesai: $("#tgl_selesai").val(),
-                jumlah_responden: $("#jumlah_responden").val(),
-            };
-
-            var combinedData = {
-                formData: formData,
-                pertanyaanArray: pertanyaanArray
-            };
-
-            // Convert the data to JSON
-            $.ajax({
-                type: "POST",
-                url: "/simpansurvei",
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(combinedData),
-                success: function (response) {
-                    console.log("Data successfully stored:", response);
-                    // Handle success, redirect, or show a success message
-                },
-                error: function (error) {
-                    console.log("Error storing data:", error);
-                    // Handle error or show an error message
-                }
-            });
-
-            } else { 
-                return false;
+        function showConfirmation() {
+            // Display a confirmation dialog
+            var isConfirmed = window.confirm("Apakah Anda yakin ingin menyimpan perubahan data diri?");
+    
+            // If the user clicks "OK", submit the form
+            if (isConfirmed) {
+                document.getElementById('editProfilForm').submit();
             }
-            // Loop through each section and submit the data
-            
         }
-
     </script>
 @endsection

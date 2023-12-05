@@ -51,6 +51,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="{{ route('editprofil') }}" class='sidebar-link'>
+                        <i class="bi bi-person-circle"></i>
+                        <span>Profil</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
                             @if(auth()->user())

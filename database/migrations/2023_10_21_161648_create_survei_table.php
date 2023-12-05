@@ -26,7 +26,7 @@ class CreateSurveiTable extends Migration
             $table->text('deskripsi_bayar')->nullable();
             $table->date('tgl_mulai')->nullable();
             $table->date('tgl_selesai')->nullable();
-            $table->enum('status', ['Sortir','Belum Bayar','Sudah Bayar','Disetujui','Dibatalkan'])->nullable();
+            $table->enum('status', ['Sortir','Belum Bayar','Sudah Bayar','Disetujui','Dibatalkan'])->default('Sortir');
             // $table->enum('status_bayar', ['Belum Bayar', 'Sudah Bayar'])->nullable();
             // $table->enum('status_survei', ['Sortir', 'DIsetujui', 'Dibatalkan'])->nullable();
             $table->timestamps();

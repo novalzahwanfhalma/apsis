@@ -84,7 +84,7 @@
                                             }
                                         @endphp
 
-                                        <span class="badge {{ $badgeColor }}">{{ $status }}</span>
+                                        <span class="badge { $badgeColor }}">{{ $status }}</span>
                                     </td>
                                     <td>
                                         <a href="{{ route('detail_dibatalkan', ['id_survei' => $item->id_survei]) }}">

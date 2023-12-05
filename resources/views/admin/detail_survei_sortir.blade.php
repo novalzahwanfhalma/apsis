@@ -318,22 +318,21 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Detail Harga</h5>
-                                            <!-- Isian detail harga sebagai textarea dengan placeholder -->
-                                            <textarea class="form-control" rows="5" placeholder="Masukkan detail harga di sini..."></textarea>
-                                        </div>
-                                    </div>
-
                                     <!-- Form di dalam modal -->
                                     <form>
                                         <div class="mb-3">
-                                            <label for="exampleFormControlInput1" class="form-label">Total harga</label>
+                                            <label for="exampleFormControlInput1" class="form-label">Total Harga</label>
                                             <div class="input-group">
                                                 <span class="input-group-text">Rp</span>
                                                 <input type="text" class="form-control" id="exampleFormControlInput1"
                                                     placeholder="Ketik harga">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">Rincian Harga</label>
+                                            <div class="input-group">
+                                                <textarea class="form-control" rows="5" placeholder="Masukkan detail harga di sini..."></textarea>
                                             </div>
                                         </div>
                                         <!-- Dropdown di dalam modal -->

@@ -27,7 +27,7 @@
                     <ul class="submenu">
                         <li class="submenu-item">
                             <a href="{{ route('sortir_admin') }}">
-                                <i class="bi bi-sort-down"></i>Sortir
+                                <i class="bi bi-sort-down"></i>Daftar Survei
                             </a>
                         </li>
                         <li class="submenu-item ">

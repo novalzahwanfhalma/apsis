@@ -233,7 +233,7 @@
                                     <div class="col-3 col-lg-3" style="height: 60px;">
                                         <div class="card text-center">
                                             <button class="btn btn-lg font-semibold" data-bs-toggle="modal"
-                                                data-bs-target="#modalTidak"
+                                                data-bs-target="#modalBayar"
                                                 style="background-color: #D99004; color: white;">
                                                 Cek Bukti Pembayaran
                                             </button>
@@ -244,6 +244,146 @@
                             </div>
                         </div>
 
+                    </div>
+                    <!-- Modal cek bukti bayar -->
+                    <div class="modal fade text-left" id="modalBayar" tabindex="-1" aria-labelledby="modalBayarLabel"
+                        style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalBayarLabel">Bukti pembayaran</h5>
+                                    <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+                                        <label class="form-check-label">
+                                            Bukti pembayaran belum tersedia
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Tutup</button>
+                                    <button type="button" class="btn btn-success"
+                                        onclick="handleSetuju()">Setuju</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-2 col-lg-2" style="height: 100px;">
+                        <div class="card text-center">
+                            <button class="btn btn-success btn-lg font-semibold" data-bs-toggle="modal"
+                                data-bs-target="#modalSetuju">
+                                Setuju
+                            </button>
+                        </div>
+
+                        <!-- Modal Setuju -->
+                        <div class="modal fade text-left" id="modalSetuju" tabindex="-1"
+                            aria-labelledby="modalSetujuLabel" style="display: none;" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalSetujuLabel">Setuju</h5>
+                                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <i data-feather="x"></i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div>
+                                            <label class="form-check-label">
+                                                Yakin menyetujui survei?
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Tutup</button>
+                                        <button type="button" class="btn btn-success"
+                                            onclick="handleSetuju()">Setuju</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-2 col-lg-2" style="height: 100px;">
+                        <div class="card text-center">
+                            <button class="btn btn-danger btn-lg font-semibold" data-bs-toggle="modal"
+                                data-bs-target="#modalTidak">
+                                Tidak
+                            </button>
+                        </div>
+
+                        <!-- Modal Tidak -->
+                        <div class="modal fade text-left" id="modalTidak" tabindex="-1"
+                            aria-labelledby="modalTidakLabel" style="display: none;" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalTidakLabel">Alasan Pembatalan</h5>
+                                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <i data-feather="x"></i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadio"
+                                                id="flexRadio">
+                                            <label class="form-check-label" for="flexRadio">
+                                                Pembayaran kurang
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            Tutup
+                                        </button>
+                                        <button type="button" class="btn btn-success"
+                                            onclick="handleTidak()">Setuju</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal Setuju -->
+                            <div class="modal fade text-left" id="modalSetuju" tabindex="-1"
+                                aria-labelledby="modalSetujuLabel" style="display: none;" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalSetujuLabel">Setuju</h5>
+                                            <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                <label class="form-check-label">
+                                                    Yakin menyetujui survei?
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Tutup</button>
+                                            <button type="button" class="btn btn-success"
+                                                onclick="handleSetuju()">Setuju</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
         </div>

@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" name="csrf-token" content="{{ csrf_token() }}">
+    <link href="landingPage/assets/img/logoapp.png" rel="icon">
+    <link href="landingPage/assets/img/logoapp.png" rel="apple-touch-icon">
     <title>APSIS</title>
     <link rel="shortcut icon" href="{{ URL::to('assets/images/favicon.png') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,7 +26,6 @@
     <!-- Include Toastr CSS and JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
 
 </head>
 <style>

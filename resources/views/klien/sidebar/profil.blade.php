@@ -19,7 +19,7 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item has-sub active">
+                <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-file-text-fill"></i>
                         <span>Survei</span>
@@ -31,7 +31,7 @@
                             </a>
                         </li>
                         </li>
-                        <li class="submenu-item active">
+                        <li class="submenu-item ">
                             <a href="{{ route('detail_survei') }}">
                                 <i class="bi bi-menu-button-wide-fill"></i> Detail Survei
                             </a>
@@ -50,7 +50,7 @@
                         <span>Verifikasi</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item active">
                     <a href="{{ route('editprofil') }}" class='sidebar-link'>
                         <i class="bi bi-person-circle"></i>
                         <span>Profil</span>
@@ -65,7 +65,7 @@
                             <hr>
                             <span>Sebagai:</span>
                             <span class="badge bg-success">Klien</span>
-                            
+
                         </div>
                     </div>
                 </li>
@@ -77,7 +77,7 @@
                     </a>
                 </li>
 
-                    <li class="sidebar-item  has-sub visually-hidden"> 
+                    <li class="sidebar-item  has-sub visually-hidden">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
                             <span>Halaman Pengguna</span>

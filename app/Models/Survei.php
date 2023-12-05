@@ -14,8 +14,10 @@ class Survei extends Model
 
 
     protected $fillable = array(
-        'id_survei', 'id_klien', 'judul', 'deskripsi', 'deskripsi_bayar', 'tgl_mulai', 'tgl_selesai', 'jumlah_responden', 'bukti', 'poin', 'nominal', 'status_survei', 'status_bayar',
+        'id_survei', 'id_klien', 'judul', 'deskripsi', 'deskripsi_bayar', 'tgl_mulai', 'tgl_selesai', 'jumlah_responden', 'bukti', 'poin', 'nominal', 'status',
     );
+
+    protected $enumStatus = ['Sortir','Belum Bayar','Sudah Bayar','Disetujui','Dibatalkan'];
 
     public function klien(){
         return $this->belongsTo(Klien::class, 'id_klien');

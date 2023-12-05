@@ -57,6 +57,10 @@ Route::get('/dashboard_admin', [App\Http\Controllers\AdminController::class, 'in
 Route::get('/buatsurvei', [App\Http\Controllers\SurveiController::class, 'create'])->name('buat_survei');
 Route::post('/simpansurvei', [App\Http\Controllers\SurveiController::class, 'store'])->name('simpan_survei');
 
+Route::get('/editprofil', [App\Http\Controllers\KlienController::class, 'edit'])->name('editprofil');
+Route::post('/simpan_datadiri/{id_klien}', [App\Http\Controllers\KlienController::class, 'update'])->name('simpan_datadiri');
+Route::post('/simpan_password/{id_klien}', [App\Http\Controllers\KlienController::class, 'updatePassword'])->name('simpan_password');
+
 Route::get('/detail_survei', [App\Http\Controllers\SurveiController::class, 'index'])->name('detail_survei');
 Route::get('/detail_survei/{id_survei}', [App\Http\Controllers\SurveiController::class, 'show'])->name('detail_survei2');
 
